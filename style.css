@@ -116,17 +116,29 @@ main{
     background-color: #4a154d;
     color: #eed3fe;
     margin: 2%;
-    padding: 2%;
+
     border-radius: 10px;
-    height: 200px;
+    height: 100%;
     width: 25%;
 
 }
 .content_content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #810484;
+    height: 100%;
     width: 100%;
+    border-radius: 10px;
 }
 .content_img{
-    height: 10%;
+    height: fit-content;
+    overflow: hidden;
+    height: 100%;
+    border-radius: 10px;
+}
+.naglowek{
+    padding: 2%;
 }
 #dodatkowe{
     background-color: #eed3fe;
