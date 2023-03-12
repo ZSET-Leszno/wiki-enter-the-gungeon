@@ -23,7 +23,9 @@
         </nav>
     </header>
     <main>
-
+        <?php
+        
+        ?>
     </main>
     <footer>
         <a>Strona by Brajan Hylla & Joanna Muzyka</a>
