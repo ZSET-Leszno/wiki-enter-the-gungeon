@@ -139,6 +139,8 @@ main{
 }
 .naglowek{
     padding: 2%;
+    color: white;
+    text-decoration: none;
 }
 #dodatkowe{
     background-color: #eed3fe;
@@ -168,6 +170,7 @@ footer{
 
     border: 1%;
 }
+
 /*
 KOLORY:
 #810484
