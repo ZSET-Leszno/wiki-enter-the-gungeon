@@ -24,7 +24,7 @@
     </header>
     <main>
         <?php
-            $conn=mysqli_connect('localhost', 'root', '', 'etg');
+            $conn=mysqli_connect('localhost', 'root', '', 'etgwiki');
             $zapytanie='SELECT * FROM postacie JOIN bronie ON bronie.id_bron=postacie.start_weapon;';
             $wynik=mysqli_query($conn,$zapytanie);
             $ile_rekord=mysqli_num_rows($wynik);
