@@ -24,7 +24,7 @@
     </header>
     <main>
         <?php
-            $conn=mysqli_connect('localhost', 'root', '', 'etgwiki');
+            $conn=mysqli_connect('localhost', 'root', '', 'etg');
             $zapytanie='SELECT * FROM itemy JOIN qualities ON itemy.quality=qualities.id_quality;';
             $wynik=mysqli_query($conn,$zapytanie);
             $ile_rekord=mysqli_num_rows($wynik);
