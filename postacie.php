@@ -24,7 +24,7 @@
     </header>
     <main>
         <?php
-            include "config.php";
+            include "zapytania.php";
             tabela_postacie();
             ?>
     </main>
