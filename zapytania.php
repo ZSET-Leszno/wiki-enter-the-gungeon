@@ -148,6 +148,104 @@ function tabela_bron(){
 ?>
 
 <?php
+    function tabela_enemy(){
+        include "config.php";
+        $conn=mysqli_connect($lokacja_baza, $user_baza, $pass_baza, $name_baza);
+        $zapytanie='SELECT * FROM enemy;';
+        $wynik=mysqli_query($conn,$zapytanie);
+        $ile_rekord=mysqli_num_rows($wynik);
+        $licz=1;
+
+        echo "<table>
+            <tr style='border: 1px solid white; background-color: black; color: white; float: center; font-size: 50%;'>
+                <td class=first_line>BANER</td>
+                <td class=first_line>NAZWA</td>
+                <td class=first_line>IKONKA</td>
+                <td class=first_line>BAZOWE ZDROWIE</td>          
+            </tr>";
+
+        while ($licz<=$ile_rekord){
+            $pokaz=mysqli_fetch_array($wynik);
+            echo '<tr><td>'.'<img style="height:200px;" src="data:image/png;base64,'.base64_encode($pokaz['baner_enemy']).'">'.'</td>'.
+            '<td>'.$pokaz['name_enemy'].'</td>'.
+            '<td>'.'<img src="data:image/png;base64,'.base64_encode($pokaz['icon_enemy']).'">'.'</td>'.
+            '<td>'.$pokaz['basehealth_enemy'].'</td></tr>';
+            $licz++;
+            }
+        echo '</table>';
+    }
+        
+?>
+
+<?php
+    function tabela_pietro(){
+        include "config.php";
+        $conn=mysqli_connect($lokacja_baza, $user_baza, $pass_baza, $name_baza);
+        $zapytanie='SELECT * FROM floors where type_floor like "Komora";';
+        $wynik=mysqli_query($conn,$zapytanie);
+        $ile_rekord=mysqli_num_rows($wynik);
+        $licz=1;
+
+        while ($licz<=$ile_rekord){
+            $pokaz=mysqli_fetch_array($wynik);
+            echo $licz."  -  ".$pokaz['name_floor'].'<br>';
+            $licz++;
+            }
+    }    
+?>
+
+<?php
+    function tabela_pietro_secret(){
+        include "config.php";
+        $conn=mysqli_connect($lokacja_baza, $user_baza, $pass_baza, $name_baza);
+        $zapytanie='SELECT * FROM floors where type_floor like "Sekretne piętro";';
+        $wynik=mysqli_query($conn,$zapytanie);
+        $ile_rekord=mysqli_num_rows($wynik);
+        $licz=1;
+
+        while ($licz<=$ile_rekord){
+            $pokaz=mysqli_fetch_array($wynik);
+            if($licz==5){
+                $licz++;
+            }
+            else{
+                $licz=$licz+0.5;
+            }
+            
+            echo $licz."  -  ".$pokaz['name_floor'].'<br>';
+            $licz=$licz+0.5;
+            }
+    }    
+?>
+
+<?php
+    function tabela_monety(){
+        include "config.php";
+        $conn=mysqli_connect($lokacja_baza, $user_baza, $pass_baza, $name_baza);
+        $zapytanie='SELECT * FROM pickupy where name_pickup like "%łuska";';
+        $wynik=mysqli_query($conn,$zapytanie);
+        $ile_rekord=mysqli_num_rows($wynik);
+        $licz=1;
+
+        while ($licz<=$ile_rekord){
+            $pokaz=mysqli_fetch_array($wynik);
+            if($pokaz['name_pickup']=='Brązowa łuska'){
+                echo '<img style="height:30px;" src="data:image/png;base64,'.base64_encode($pokaz['icon_pickup']).'">'.'('.$pokaz['name_pickup'].') jest wart 1 Łuskę.'.'<br>';
+                $licz++;
+            }
+            elseif($pokaz['name_pickup']=='Srebrna łuska'){
+                echo '<img style="height:30px;" src="data:image/png;base64,'.base64_encode($pokaz['icon_pickup']).'">'.'('.$pokaz['name_pickup'].') jest wart 5 Łusek.'.'<br>';
+                $licz++;
+            }
+            elseif($pokaz['name_pickup']=='Złota łuska'){
+                echo '<img style="height:30px;" src="data:image/png;base64,'.base64_encode($pokaz['icon_pickup']).'">'.'('.$pokaz['name_pickup'].') jest wart 50 Łusek.'.'<br>';
+                $licz++;
+            }
+        }
+    }
+?>
+
+<?php
 function test(){
     if (mysqli_connect_errno()) {
         echo "Failed to connect to MySQL: " . mysqli_connect_error();
