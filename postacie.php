@@ -19,7 +19,7 @@
         </div>
         <nav>
             <a id="link_" href="index.html">START</a>
-            <a id="link_" href="logowanie.php">LOG IN</a>
+            <a id="link_" href="log.php">LOG IN</a>
         </nav>
     </header>
     <main>

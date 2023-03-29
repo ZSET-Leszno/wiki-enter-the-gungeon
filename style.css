@@ -1,5 +1,5 @@
 *{
-    font-family: Impact;
+    font-family: sans-serif;
     
 
 }
@@ -10,6 +10,7 @@ body{
     background-image: url("img/tlo.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
+
 }
 header{
     height: 10%;
@@ -58,7 +59,7 @@ nav{
 }
 main{
     font-size: 25pt;
-    height: 2000px;
+    height: auto;
 }
 #karuzela{
     background-color: rgb(238, 211, 254, 0.6);
@@ -74,9 +75,18 @@ main{
     border-style: double;
 
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-    
 }
+
+#karuzela_obraz{
+    width: 80%;
+
+}
+
 #kom_sekcja{
     background-color: rgb(238, 211, 254, 0.6);
     float: right;
