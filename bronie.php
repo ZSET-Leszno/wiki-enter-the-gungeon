@@ -35,6 +35,7 @@
     </header>
     <main>
         <?php
+        include 'zapytania.php';
             tabela_bron_2();
         ?>
     </main>
