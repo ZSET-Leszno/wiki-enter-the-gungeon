@@ -39,6 +39,125 @@ function tabela_bron(){
 ?>
 
 <?php
+    function tabela_postacie_2(){
+        include "config.php";
+        $conn=mysqli_connect($lokacja_baza, $user_baza, $pass_baza, $name_baza);
+        $zapytanie='SELECT * FROM postacie 
+        JOIN bronie as b1 ON b1.id=postacie.start_weapon 
+        JOIN bronie as b2 ON b2.id=postacie.start_weapon_2
+        JOIN itemy as i1 ON i1.id=postacie.start_item
+        JOIN itemy as i2 ON i2.id=postacie.start_item_2
+        JOIN itemy as i3 ON i3.id=postacie.start_item_3
+        ;';
+
+        $wynik=mysqli_query($conn,$zapytanie);
+        $ile_rekord=mysqli_num_rows($wynik);
+        $licz=1;
+        echo "<div style='display:flex; flex-direction:column;'>";
+        echo "<div class='row mb-3 mt-2'>";
+        while ($licz<=$ile_rekord){
+            if($licz==4 || $licz==7){
+                echo '</div>';
+                echo "<div class='row mb-3 mt-2'>";
+            }
+            $pokaz=mysqli_fetch_array($wynik);
+
+            echo "
+                <div class='col-sm-3 text-center'>
+                    <button type='button' class='btn m-1 btn-dark w-75' data-bs-toggle='modal' data-bs-target='#".$pokaz['name_gungeoneer'].$licz."'>"
+                        //obrazek postaci
+                        .'<img style="height:100px;" src="data:image/png;base64,'.base64_encode($pokaz[5]).'">'."<br>"
+                        //nazwa postaci
+                        ."<h4>".$pokaz['name_gungeoneer']."</h4>".
+                    "</button>".
+
+                    //środek
+                    "<div class='modal fade mt-5' id=".$pokaz['name_gungeoneer'].$licz." tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+                    <div class='modal-dialog'>
+                        <div class='modal-content'>
+                        <div class='modal-header'>
+                            <h1 class='modal-title fs-5' id='exampleModalLabel'>
+                                lorem ipsum
+                            </h1>
+                            <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+                        </div>".
+
+                        "<div class='modal-body'>"
+
+                        //portret postaci
+                        .'<img style="height:100px;" src="data:image/png;base64,'.base64_encode($pokaz[2]).'">'.
+                        '<img style="height:100px;" src="data:image/png;base64,'.base64_encode($pokaz[3]).'">'
+                        //opis postaci
+                        ."<div class='mb-2'>Opis postaci</div>".
+                        "<div class='text-start'>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit alias libero inventore nam voluptates voluptas voluptate sapiente pariatur culpa iusto. Quisquam sunt possimus consequuntur, veniam deserunt dolorem odit nostrum nam!
+                        </div>".
+                        //bronie
+                        "<div class='mb-2'>Bronie startowe</div>"
+                        //pierwsza broń
+                        .'<img src="data:image/png;base64,'.base64_encode($pokaz[15]).'">'."<br>"."<a>bron 1</a>"."<br>";
+                        //druga broń
+                        if($pokaz[39]==1){
+                            echo '<img src="data:image/png;base64,'.base64_encode($pokaz[29]).'">'."<br>"."<a>bron 2</a>"."<br>";
+                        }
+                        //losowa broń
+                        elseif($pokaz[27]=='Losowa broń'){
+                            echo '<img src="data:image/png;base64,'.base64_encode($pokaz[29]).'">'."<br>"."<a>bron 2</a>"."<br>";
+                        }
+                        //przedmioty
+                        echo "<div class='mb-2'>Przedmioty startowe</div>";
+                        //pierwszy przedmiot
+                        echo '<td>'.'<img src="data:image/png;base64,'.base64_encode($pokaz[43]).'">'."<br>"."<a>przedmiot 1</a>"."<br>";
+                        //drugi przedmiot
+                        if($pokaz[55]==1){
+                            echo '<img src="data:image/png;base64,'.base64_encode($pokaz[51]).'">'."<br>"."<a>przedmiot 2</a>"."<br>";
+                            //trzeci przedmiot
+                            if($pokaz[63]==1){
+                                echo '<img src="data:image/png;base64,'.base64_encode($pokaz[59]).'">'."<br>"."<a>przedmiot 3</a>"."<br>";
+                            }
+                            //elseif($pokaz[63]==0){
+                            //    echo "</td><tr>";
+                            //}
+                        }
+                        //elseif($pokaz[55]==0){
+                        //    echo "</td><tr>";
+                        //}
+                        echo
+                        "</div>
+                        </div>
+                    </div>
+                    </div>
+                </div>";
+
+
+
+            //obrazek/nazwa postaci
+            //     echo "<tr><td>".'<img style="height:100px;" src="data:image/png;base64,'.base64_encode($pokaz[4]).'">'."</td><td>".
+            //pierwsza broń
+            //    '<img src="data:image/png;base64,'.base64_encode($pokaz[15]).'">';
+            //druga broń
+            //if($pokaz[39]==1){
+            //    echo '<img src="data:image/png;base64,'.base64_encode($pokaz[29]).'">'."</td>";
+            //}
+            //elseif($pokaz[27]=='Losowa broń'){
+            //    echo '<img src="data:image/png;base64,'.base64_encode($pokaz[29]).'">'."</td>";
+            //}
+            //else{
+            //    echo "</td>";
+            //}
+            //pierwszy przedmiot
+            //echo '<td>'.'<img src="data:image/png;base64,'.base64_encode($pokaz[43]).'">';
+            //drugi przedmiot
+
+            $licz++;
+        }
+        echo '</div>';
+        echo '</div>';
+    }
+?>
+
+
+<?php
     function tabela_postacie(){
         include "config.php";
         $conn=mysqli_connect($lokacja_baza, $user_baza, $pass_baza, $name_baza);
@@ -66,7 +185,6 @@ function tabela_bron(){
 
         while ($licz<=$ile_rekord){
             $pokaz=mysqli_fetch_array($wynik);
-
 
             //obrazek/nazwa postaci
             echo "<tr><td>".'<img style="height:100px;" src="data:image/png;base64,'.base64_encode($pokaz[4]).'">'."</td><td>".
@@ -242,6 +360,7 @@ function tabela_bron(){
                 $licz++;
             }
         }
+        
     }
 ?>
 
