@@ -1,45 +1,4 @@
 <?php
-function naglowek(){
-    echo "
-<!DOCTYPE html>
-<html lang='pl'>
-<head>
-    <meta charset='UTF-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <link rel='shortcut icon' href='img/icon.jpg'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <link rel='stylesheet' href='smartphone.css' media='screen and (maxwidth:1024px)'>
-    <link rel='stylesheet' href='style.css'>
-    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp' crossorigin='anonymous'>
-    <script src='ttps://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js' integrity='sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N' crossorigin='anonymous'></script>
-    <title>Pocket Ammunicon</title>
-</head>
-<body>
-
-    <header>
-        <div id='logo'>
-            <img id='logo_img' src='img/logo.png' alt='logo'>
-        </div>
-        <div id='title'>
-            <a >Enter the gungeon WIKI 'Pocket Ammunicon' by Brajan Hylla & Joanna Muzyka</a>
-        </div>
-        <nav>
-            <a class='link_' href='index.php'>START</a>
-
-            <a class='link_' href='postacie.php'>POSTACIE</a>
-            <a class='link_' href='bronie.php'>BRONIE</a>
-            <a class='link_' href='enemy.php'>PRZECIWNICY</a>
-            <a class='link_' href='floors.php'>PIĘTRA</a>
-            <a class='link_' href='itemy.php'>ITEMY</a>
-            <a class='link_' href='pickupy.php'>PICKUPY</a>
-
-            <a class='link_' href='log.php'>LOG IN</a>
-        </nav>
-    </header>";
-}
-?>
-
-<?php
 function tabela_bron(){
     include "config.php";
     $conn=mysqli_connect($lokacja_baza, $user_baza, $pass_baza, $name_baza);
@@ -89,10 +48,10 @@ function tabela_bron_2(){
     $licz=1;
     echo "<div class='row mb-3 mt-2'>";
     while ($licz<=$ile_rekord){
-        if($licz==6){
+        /*if($licz==5){
             echo '</div>';
             echo "<div class='row mb-3 mt-2'>";
-        }
+        }*/
         
         $pokaz=mysqli_fetch_array($wynik);
         if ($pokaz['exist_bron']=='0'){
@@ -101,15 +60,15 @@ function tabela_bron_2(){
         elseif($pokaz['exist_bron']=='1'){
         echo "
             <div class='col-sm-3 text-center'>
-                <button type='button' class='btn m-1 btn-dark w-75' data-bs-toggle='modal' data-bs-target='#".$pokaz['name_bron'].$licz."'>"
+                <button type='button' class='btn m-1 btn-dark' data-bs-toggle='modal' data-bs-target='#".$licz."'>"
                     //obrazek postaci
-                    .'<img style="width:100px;" src="data:image/png;base64,'.base64_encode($pokaz['icon_bron']).'">'."<br>"
+                    .'<img src="data:image/png;base64,'.base64_encode($pokaz['icon_bron']).'">'
                     //nazwa postaci
                     ."<h4>".$pokaz['name_bron']."</h4>".
                 "</button>".
 
                 //środek
-                "<div class='modal fade mt-5' id=".$pokaz['name_bron'].$licz." tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+                "<div class='modal fade mt-5' id=".$licz." tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
                 <div class='modal-dialog'>
                     <div class='modal-content'>
                     <div class='modal-header'>
@@ -122,7 +81,7 @@ function tabela_bron_2(){
                     "<div class='modal-body'>"
 
                     //obrazek broni
-                    .'<img style="height:100px;" src="data:image/png;base64,'.base64_encode($pokaz['icon_bron']).'">'.
+                    .'<img src="data:image/png;base64,'.base64_encode($pokaz['icon_bron']).'">'.
                     //opis broni
                     "<div class='mb-2'>Opis broni</div>".
                     "<div class='text-start'>
@@ -132,22 +91,21 @@ function tabela_bron_2(){
                     "<div class='mb-2'>Statystyki</div>".
                     //statystyki
                     "<div class='text-start'>";
-                    echo "<table>
-                    <tr style='border: 1px solid white; float: center; font-size: 50%;'>
-                        <td class=first_line>NAZWA BRONI</td>
-                        <td class=first_line>WPIS W AMMUNOMICONIE</td>
-                        <td class=first_line>WYGLĄD BRONI</td>
-                        <td class=first_line>JAKOŚĆ</td>
-                        <td class=first_line>TYP BRONI</td>
-                        <td class=first_line>ROZMIAR MAGAZYNKU</td>
-                        <td class=first_line>MAKSYMALNA ILOŚĆ AMUNICJI</td>
-                        <td class=first_line>OBRAŻENIA</td>
-                        <td class=first_line>SZYBKOSTRZELNOŚĆ</td>
-                        <td class=first_line>ZASIĘG</td>
-                        <td class=first_line>RODZAJ OBRAŻEŃ</td>
-                        <td class=first_line>CENA SPRZEDAŻY DZIWAKOWI</td>            
-                    </tr>";
-                    echo '<tr><td>'.$pokaz[1].'</td><td>'.$pokaz[2].'</td><td>'.'<img src="data:image/png;base64,'.base64_encode($pokaz['icon_bron']).'">'.'</td><td>'.'<img src="data:image/png;base64,'.base64_encode($pokaz['image_quality']).'">'.'</td><td>'.$pokaz[5].'</td><td>'.$pokaz[6].'</td><td>'.$pokaz[7].'</td><td>'.$pokaz[8].'</td><td>'.$pokaz[9].'</td><td>'.$pokaz[10].'</td><td>'.$pokaz[11].'</td><td>'.$pokaz[12].'</td></tr>';
+                    echo "<table>";
+                    //<tr style='border: 1px solid white; float: center; font-size: 50%;'>
+
+                    echo '<tr class="statsy_bron"><td>NAZWA BRONI</td><td>'.$pokaz[1].'</td></tr>';
+                    echo '<tr class="statsy_bron"><td>WPIS W AMMUNOMICONIE</td><td>'.$pokaz[2].'</td></tr>';
+                    echo '<tr class="statsy_bron"><td>JAKOŚĆ</td><td>'.'<img style="width: 10%;" src="data:image/png;base64,'.base64_encode($pokaz['image_quality']).'">'.'</td></tr>';
+                    echo '<tr class="statsy_bron"><td>TYP BRONI</td><td>'.$pokaz[5].'</td></tr>';
+                    echo '<tr class="statsy_bron"><td>ROZMIAR MAGAZYNKU</td><td>'.$pokaz[6].'</td></tr>';
+
+                    echo '<tr class="statsy_bron"><td>MAKSYMALNA ILOŚĆ AMUNICJI</td><td>'.$pokaz[7].'</td></tr>';
+                    echo '<tr class="statsy_bron"><td>OBRAŻENIA</td><td>'.$pokaz[8].'</td></tr>';
+                    echo '<tr class="statsy_bron"><td>SZYBKOSTRZELNOŚĆ</td><td>'.$pokaz[9].'</td></tr>';
+                    echo '<tr class="statsy_bron"><td>ZASIĘG</td><td>'.$pokaz[10].'</td></tr>';
+                    echo '<tr class="statsy_bron"><td>RODZAJ OBRAŻEŃ</td><td>'.$pokaz[11].'</td></tr>';
+                    echo '<tr class="statsy_bron"><td>CENA SPRZEDAŻY DZIWAKOWI</td><td>'.$pokaz[12].'</td></tr>';  
                     echo '</table>
                     </div>
                     </div>
