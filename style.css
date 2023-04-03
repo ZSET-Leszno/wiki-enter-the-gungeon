@@ -3,6 +3,11 @@
     
 
 }
+
+.row{
+    justify-content:space-evenly;
+}
+
 body{
     height: 80%;
     color: #3d2564;
