@@ -212,25 +212,63 @@ echo '<br>';
         $ile_rekord=mysqli_num_rows($wynik);
         $licz=1;
 
-        echo "<table>
-            <tr style='border: 1px solid white; background-color: black; color: white; float: center; font-size: 50%;'>
-                <td class=first_line>NAZWA PRZEDMIOTU</td>
-                <td class=first_line>WPIS W AMMUNOMICONIE</td>
-                <td class=first_line>WYGLĄD PRZEDMIOTU</td>
-                <td class=first_line>JAKOŚĆ</td>
-                <td class=first_line>TYP PRZEDMIOTU</td>
-                <td class=first_line>OPIS</td>
-                <td class=first_line>CENA SPRZEDAŻY DZIWAKOWI</td>            
-            </tr>";
-
+        echo "<div class='row mb-3 mt-2'>";
         while ($licz<=$ile_rekord){
                 $pokaz=mysqli_fetch_array($wynik);
                 if ($pokaz['exist_item']=='0'){
                     break;
                 }
-                else{
-                    echo '<tr><td>'.$pokaz[1].'</td><td>'.$pokaz[2].'</td><td>'.'<img src="data:image/png;base64,'.base64_encode($pokaz['icon_item']).'">'.'</td><td>'.'<img src="data:image/png;base64,'.base64_encode($pokaz['image_quality']).'">'.'</td><td>'.$pokaz[5].'</td><td>'.$pokaz[6].'</td><td>'.$pokaz[7].'</td></tr>';
-                    $licz++;
+                elseif ($pokaz['exist_item']=='1'){
+                    echo "
+                    <div class='col-sm-3 text-center'>
+                        <button type='button' class='btn m-1 btn-dark w-75' data-bs-toggle='modal' data-bs-target='#".$licz."'>"
+                            //obrazek postaci
+                            .'<img src="data:image/png;base64,'.base64_encode($pokaz['icon_item']).'">'
+                            //nazwa postaci
+                            ."<h4>".$pokaz['name_item']."</h4>".
+                        "</button>".
+        
+                        //środek
+                        "<div class='modal fade mt-5 text-dark-emphasis' data-bs-theme='dark' id=".$licz." tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+                        <div class='modal-dialog'>
+                            <div class='modal-content'>
+                            <div class='modal-header'>
+                                <div class='mb-2'>"
+                                    .$pokaz['name_item'].
+                                "</div>
+                                <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+                            </div>".
+        
+                            "<div class='modal-body'>"
+        
+                            //obrazek broni
+                            .'<img src="data:image/png;base64,'.base64_encode($pokaz['icon_item']).'">'.
+                            //opis broni
+                            "<div class='mb-2'>Opis broni</div>".
+                            "<div class='text-start'>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit alias libero inventore nam voluptates voluptas voluptate sapiente pariatur culpa iusto. Quisquam sunt possimus consequuntur, veniam deserunt dolorem odit nostrum nam!
+                            </div>".
+                            //bronie
+                            "<div class='mb-2'>Statystyki</div>".
+                            //statystyki
+                            "<div class='text-start'>";
+                            echo "<table>";
+                            //<tr style='border: 1px solid white; float: center; font-size: 50%;'>
+        
+                            echo '<tr class="statsy_bron"><td>NAZWA PRZEDMIOTU</td><td>'.$pokaz[1].'</td></tr>';
+                            echo '<tr class="statsy_bron"><td>WPIS W AMMUNOMICONIE</td><td>'.$pokaz[2].'</td></tr>';
+                            echo '<tr class="statsy_bron"><td>JAKOŚĆ</td><td>'.'<img style="width: 10%;" src="data:image/png;base64,'.base64_encode($pokaz['image_quality']).'">'.'</td></tr>';
+                            echo '<tr class="statsy_bron"><td>TYP PRZEDMIOTU</td><td>'.$pokaz[5].'</td></tr>';
+                            echo '<tr class="statsy_bron"><td>CENA SPRZEDAŻY DZIWAKOWI</td><td>'.$pokaz[6].'</td></tr>';  
+                            echo '</table><br><br>
+                            </div>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>';
+        
+                $licz++;
                 }
             }
         echo '</table>';
