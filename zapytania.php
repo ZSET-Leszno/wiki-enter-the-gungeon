@@ -49,9 +49,9 @@ function tabela_bron(){
                     .'<img src="data:image/png;base64,'.base64_encode($pokaz['icon_bron']).'">'.
                     //opis broni
                     "<div class='mb-2'>Opis broni</div>".
-                    "<div class='text-start'>
+                    "<span style='font-size: 70%;'>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit alias libero inventore nam voluptates voluptas voluptate sapiente pariatur culpa iusto. Quisquam sunt possimus consequuntur, veniam deserunt dolorem odit nostrum nam!
-                    </div>".
+                    </span>".
                     //bronie
                     "<div class='mb-2'>Statystyki</div>".
                     //statystyki
@@ -138,9 +138,9 @@ echo '<br>';
                         '<img style="height:100px;" src="data:image/png;base64,'.base64_encode($pokaz[3]).'">'
                         //opis postaci
                         ."<div class='mb-2'>Opis postaci</div>".
-                        "<div class='text-start'>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit alias libero inventore nam voluptates voluptas voluptate sapiente pariatur culpa iusto. Quisquam sunt possimus consequuntur, veniam deserunt dolorem odit nostrum nam!
-                        </div>".
+                        "<span style='font-size: 70%;'>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit alias libero inventore nam voluptates voluptas voluptate sapiente pariatur culpa iusto. Quisquam sunt possimus consequuntur, veniam deserunt dolorem odit nostrum nam!
+                        </span>".
                         //bronie
                         "<div class='mb-2'>Bronie startowe</div>"
                         //pierwsza broń
@@ -256,9 +256,9 @@ echo '<br>';
                             .'<img src="data:image/png;base64,'.base64_encode($pokaz['icon_item']).'">'.
                             //opis broni
                             "<div class='mb-2'>Opis broni</div>".
-                            "<div class='text-start'>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit alias libero inventore nam voluptates voluptas voluptate sapiente pariatur culpa iusto. Quisquam sunt possimus consequuntur, veniam deserunt dolorem odit nostrum nam!
-                            </div>".
+                            "<span style='font-size: 70%;'>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit alias libero inventore nam voluptates voluptas voluptate sapiente pariatur culpa iusto. Quisquam sunt possimus consequuntur, veniam deserunt dolorem odit nostrum nam!
+                            </span>".
                             //bronie
                             "<div class='mb-2'>Statystyki</div>".
                             //statystyki
@@ -333,9 +333,9 @@ echo '<br>';
                             .'<img src="data:image/png;base64,'.base64_encode($pokaz['icon_enemy']).'">'.
                             //opis broni
                             "<div class='mb-2'>Opis broni</div>".
-                            "<div class='text-start'>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit alias libero inventore nam voluptates voluptas voluptate sapiente pariatur culpa iusto. Quisquam sunt possimus consequuntur, veniam deserunt dolorem odit nostrum nam!
-                            </div>".
+                            "<span style='font-size: 70%;'>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit alias libero inventore nam voluptates voluptas voluptate sapiente pariatur culpa iusto. Quisquam sunt possimus consequuntur, veniam deserunt dolorem odit nostrum nam!
+                            </span>".
                             //bronie
                             "<div class='mb-2'>Statystyki</div>".
                             //statystyki
