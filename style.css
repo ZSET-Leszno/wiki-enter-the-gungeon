@@ -195,9 +195,15 @@ main{
 footer{
     clear: both;
     padding: 1%;
-    height: 10%;
+    height: 5%;
     background-color: #0f0028;
     color: #eed3fe;
+
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 table{
     border-collapse: collapse;

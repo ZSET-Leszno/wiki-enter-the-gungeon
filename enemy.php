@@ -7,8 +7,8 @@
             tabela_enemy();
         ?>
     </main>
-    <!--<footer>
+    <footer>
         <a>Strona by Brajan Hylla & Joanna Muzyka</a>
-    </footer>-->
+    </footer>
 </body>
 </html>
