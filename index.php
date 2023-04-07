@@ -3,9 +3,9 @@
 ?>
     <main>
         <div id="karuzela">
-            <h1>Enter the Gungeon Wiki</h1>
-            <p>Witaj na naszej wiki!</p>
-            <span>Znajdziesz tu wiele informacji na temat gry Enter the Gungeon</span>
+            <h1><b>Enter the Gungeon Wiki</b></h1>
+            <p><b>Witaj na naszej wiki!</b></p>
+            <span><b>Znajdziesz tu wiele informacji na temat gry Enter the Gungeon</b></span>
             <div id="karuzela_obraz">
                 <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
@@ -56,53 +56,54 @@
         </div>
 
         <div id="kom_sekcja">
-            <span>komentarze</span>
+            <span><b>komentarze</b></span>
         </div>
         <div id="content">
-            <a>WIKI</a>
+            <a><b>WIKI</b></a>
             <div class="content_group">
-                <div class="content_single">
-                    <a class="naglowek" href="postacie.php">GIWEROWNICY</a>
-                    <div class="content_content">
-                        <img class="content_img" src="img/icon.jpg" alt="zdjęcie">
+                <a class="content_single" href="postacie.php">
+                    <span class="naglowek">GIWEROWNICY</span>
+                        <div class="content_content">
+                            <img class="content_img" src="img/icon.jpg" alt="zdjęcie">
                     </div>
-                </div>
-                <div class="content_single">
-                    <a class="naglowek" href="bronie.php">BRONIE</a>
-                    <div class="content_content">
-                        <img class="content_img" src="img/icon.jpg" alt="zdjęcie">
+                </a>
+                <a class="content_single" href="bronie.php">
+                    <span class="naglowek">BRONIE</span>
+                        <div class="content_content">
+                            <img class="content_img" src="img/icon.jpg" alt="zdjęcie">
                     </div>
-                </div>
-                <div class="content_single">
-                    <a class="naglowek" href="enemy.php">PRZECIWNICY</a>
-                    <div class="content_content">
-                        <img class="content_img" src="img/icon.jpg" alt="zdjęcie">
+                </a>
+                <a class="content_single" href="enemy.php">
+                    <span class="naglowek">PRZECIWNICY</span>
+                        <div class="content_content">
+                            <img class="content_img" src="img/icon.jpg" alt="zdjęcie">
                     </div>
-                </div>
+                </a>
             </div>
+
             <div class="content_group">
-                <div class="content_single">
-                    <a class="naglowek" href="floors.php">PIĘTRA</a>
-                    <div class="content_content">
-                        <img class="content_img" src="img/icon.jpg" alt="zdjęcie">
+                <a class="content_single" href="floors.php">
+                    <span class="naglowek">PIĘTRA</span>
+                        <div class="content_content">
+                            <img class="content_img" src="img/icon.jpg" alt="zdjęcie">
                     </div>
-                </div>
-                <div class="content_single">
-                    <a class="naglowek" href="itemy.php">ITEMY</a>
-                    <div class="content_content">
-                        <img class="content_img" src="img/icon.jpg" alt="zdjęcie">
+                </a>
+                <a class="content_single" href="itemy.php">
+                    <span class="naglowek">PRZEDMIOTY</span>
+                        <div class="content_content">
+                            <img class="content_img" src="img/icon.jpg" alt="zdjęcie">
                     </div>
-                </div>
-                <div class="content_single">
-                    <a class="naglowek" href="pickupy.php">PICKUP-y</a>
-                    <div class="content_content">
-                        <img class="content_img" src="img/icon.jpg" alt="zdjęcie">
+                </a>
+                <a class="content_single" href="pickupy.php">
+                    <span class="naglowek">PICKUPY</span>
+                        <div class="content_content">
+                            <img class="content_img" src="img/icon.jpg" alt="zdjęcie">
                     </div>
-                </div>
+                </a>
             </div>
         </div>
         <div id="dodatkowe">
-            <a>dodatkowe</a>
+            <a><b>dodatkowe</b></a>
         </div>
     </main>
     <footer>

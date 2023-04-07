@@ -42,7 +42,7 @@ header{
     align-items: center;
     background-color: #3d2564;
     color: #eed3fe;
-    font-size: 15pt;
+    font-size: 2vh;
     padding: 0.5%;
     padding-left: 2%;
     padding-right: 2%;
@@ -68,7 +68,7 @@ nav{
     padding-right: 2%;
     background-color: #3d2564;
     height: 60%;
-
+    font-size: 2vh;
 }
 main{
     font-size: 25pt;
@@ -154,7 +154,7 @@ main{
     border-radius: 10px;
     height: 100%;
     width: 25%;
-
+    text-decoration: none;
 }
 .content_content{
     display: flex;
@@ -164,7 +164,8 @@ main{
     height: 100%;
     width: 100%;
     border-radius: 10px;
-    margin: 2%;
+    padding: 2%;
+
 }
 .content_img{
     height: fit-content;
@@ -176,6 +177,7 @@ main{
     padding: 2%;
     color: white;
     text-decoration: none;
+    font-weight: bold;
 }
 #dodatkowe{
     background-color: rgb(238, 211, 254, 0.6);
@@ -207,15 +209,48 @@ footer{
 }
 table{
     border-collapse: collapse;
+
 }
 .statsy_bron{
     width: 20%; 
     font-size:50%;
 }
 td{
-    width: 55%;
-    border: 1px solid white!important;
+    width: 80%;
+    border: 5px solid #2e1158!important;
 }
+#naglowek_okienko{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+#obrazek_okienko{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid #2e1158!important;
+    padding: 4vh;
+}
+#nazwa_okienko{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+.mb-2{
+    font-size: 85%;
+    font-weight: bold;
+}
+.modal-body{
+    display: flex;
+    flex-direction: column;
+}
+#cale_te{
+    background-color: #0f0028;
+    border: 5px solid #2e1158!important;
+    color: #dcbdee;
+}
+
 
 /*
 KOLORY:

@@ -7,7 +7,7 @@ function tabela_bron(){
     $ile_rekord=mysqli_num_rows($wynik);
     $licz=1;
     echo "<div class='row mb-3 mt-2'>";
-    while ($licz<=$ile_rekord){
+    while($licz<=$ile_rekord){
         /*if($licz==5){
             echo '</div>';
             echo "<div class='row mb-3 mt-2'>";
@@ -18,66 +18,71 @@ function tabela_bron(){
             break;
         }
         elseif($pokaz['exist_bron']=='1'){
-        echo "
+            echo "
             <div class='col-sm-3 text-center'>
-                <button type='button' class='btn m-1 btn-dark w-75' data-bs-toggle='modal' data-bs-target='#".$licz."'>"
-                    //obrazek postaci
-                    .'<img src="data:image/png;base64,'.base64_encode($pokaz['icon_bron']).'">'
-                    //nazwa postaci
-                    ."<h4>".$pokaz['name_bron']."</h4>".
-                "</button>".
+                <button type='button' class='btn m-1 btn-dark w-75' data-bs-toggle='modal' data-bs-target='#".$licz."'>
+                ".'<img src="data:image/png;base64,'.base64_encode($pokaz['icon_bron']).'">'."
+                    <h4>".$pokaz['name_bron']."</h4>
+                </button>
 
 
-                //środek
-                "<div class='modal fade mt-5 text-dark-emphasis' data-bs-theme='dark' id=".$licz." tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
-                <div class='modal-dialog'>
-                    <div class='modal-content'>
-                    <div class='modal-header'>
-                        <div class='mb-2'>"
-                            .$pokaz['name_bron'].
-                        "</div>
-                        <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
-                    </div>".
-                    "<div class='modal-header'>
-                    <div class='mb-2'>"
-                        .$pokaz['cytat_bron'].
-                    "</div>
-                    </div>".
-                    "<div class='modal-body'>"
+                <div class='modal fade mt-5 text-dark-emphasis' data-bs-theme='dark' id='".$licz."' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+                    <div class='modal-dialog'>
+                        <div class='modal-content'>
+                        
+                        <div id='cale_te'>
+                        
+                            <div style='display: flex; justify-content: right;'>
+                                <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+                            </div>
 
-                    //obrazek broni
-                    .'<img src="data:image/png;base64,'.base64_encode($pokaz['icon_bron']).'">'.
-                    //opis broni
-                    "<div class='mb-2'>Opis broni</div>".
-                    "<span style='font-size: 70%;'>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit alias libero inventore nam voluptates voluptas voluptate sapiente pariatur culpa iusto. Quisquam sunt possimus consequuntur, veniam deserunt dolorem odit nostrum nam!
-                    </span>".
-                    //bronie
-                    "<div class='mb-2'>Statystyki</div>".
-                    //statystyki
-                    "<div class='text-start'>";
-                    echo "<table>";
-                    //<tr style='border: 1px solid white; float: center; font-size: 50%;'>
+                            <div id='naglowek_okienko'>
+                                <div id='obrazek_okienko'>
+                                    ".'<img style="width: 180%;" src="data:image/png;base64,'.base64_encode($pokaz['icon_bron']).'">'."
+                                </div>
+                                
+                                <div id='nazwa_okienko'>
 
-                    echo '<tr class="statsy_bron"><td>NAZWA BRONI</td><td>'.$pokaz[1].'</td></tr>';
-                    echo '<tr class="statsy_bron"><td>WPIS W AMMUNOMICONIE</td><td>'.$pokaz[2].'</td></tr>';
-                    echo '<tr class="statsy_bron"><td>JAKOŚĆ</td><td>'.'<img style="width: 10%;" src="data:image/png;base64,'.base64_encode($pokaz['image_quality']).'">'.'</td></tr>';
-                    echo '<tr class="statsy_bron"><td>TYP BRONI</td><td>'.$pokaz[5].'</td></tr>';
-                    echo '<tr class="statsy_bron"><td>ROZMIAR MAGAZYNKU</td><td>'.$pokaz[6].'</td></tr>';
+                                    <div class='mb-2'>
+                                        ".$pokaz['name_bron']."
+                                    </div>
+                                    <hr>
+                                    <div class='mb-2'>
+                                        ".$pokaz['cytat_bron']."
+                                    </div>
+                                </div>
+                            </div>
+                            
 
-                    echo '<tr class="statsy_bron"><td>MAKSYMALNA ILOŚĆ AMUNICJI</td><td>'.$pokaz[7].'</td></tr>';
-                    echo '<tr class="statsy_bron"><td>OBRAŻENIA</td><td>'.$pokaz[8].'</td></tr>';
-                    echo '<tr class="statsy_bron"><td>SZYBKOSTRZELNOŚĆ</td><td>'.$pokaz[9].'</td></tr>';
-                    echo '<tr class="statsy_bron"><td>ZASIĘG</td><td>'.$pokaz[10].'</td></tr>';
-                    echo '<tr class="statsy_bron"><td>RODZAJ OBRAŻEŃ</td><td>'.$pokaz[11].'</td></tr>';
-                    echo '<tr class="statsy_bron"><td>CENA SPRZEDAŻY DZIWAKOWI</td><td>'.$pokaz[12].'</td></tr>';  
-                    echo '</table><br><br>
-                    </div>
-                    </div>
+                            
+
+                            <div class='modal-body'>
+                                <br>
+                                <span style='font-size: 70%;'>
+                                ".$pokaz['opis']."
+                                </span>
+                                <br>
+                                
+                                <div class='statsy'>
+                                    <table>
+                                        <tr class='statsy_bron'><td>JAKOŚĆ</td><td>".'<img style="width: 25%;" src="data:image/png;base64,'.base64_encode($pokaz['image_quality']).'">'."</td></tr>
+                                        <tr class='statsy_bron'><td>TYP BRONI</td><td>".$pokaz['type_bron']."</td></tr>
+                                        <tr class='statsy_bron'><td>ROZMIAR MAGAZYNKU</td><td>".$pokaz['magazine_size']."</td></tr>
+                                        <tr class='statsy_bron'><td>MAKSYMALNA ILOŚĆ AMUNICJI</td><td>".$pokaz['max_ammo']."</td></tr>
+                                        <tr class='statsy_bron'><td>OBRAŻENIA</td><td>".$pokaz['damage']."</td></tr>
+                                        <tr class='statsy_bron'><td>RODZAJ OBRAŻEŃ</td><td>".$pokaz['damage_type']."</td></tr>
+                                        <tr class='statsy_bron'><td>SZYBKOSTRZELNOŚĆ</td><td>".$pokaz['fire_rate']."</td></tr>
+                                        <tr class='statsy_bron'><td>ZASIĘG</td><td>".$pokaz['range_bron']."</td></tr>
+                                        <tr class='statsy_bron'><td>CENA SPRZEDAŻY DZIWAKOWI</td><td>".$pokaz['creep_sell_price']."</td></tr></table><br>
+                                </div>
+                            </div>
+
+                            </div>
+
+                        </div>
                     </div>
                 </div>
-                </div>
-            </div>';
+            </div>";
 
         $licz++;
     }
@@ -225,61 +230,61 @@ echo '<br>';
                 }
                 elseif ($pokaz['exist_item']=='1'){
                     echo "
-                    <div class='col-sm-3 text-center'>
-                        <button type='button' class='btn m-1 btn-dark w-75' data-bs-toggle='modal' data-bs-target='#".$licz."'>"
-                            //obrazek postaci
-                            .'<img src="data:image/png;base64,'.base64_encode($pokaz['icon_item']).'">'
-                            //nazwa postaci
-                            ."<h4>".$pokaz['name_item']."</h4>".
-                        "</button>".
-        
-                        //środek
-                        "<div class='modal fade mt-5 text-dark-emphasis' data-bs-theme='dark' id=".$licz." tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
-                        <div class='modal-dialog'>
-                            <div class='modal-content'>
-                            <div class='modal-header'>
-                                <div class='mb-2'>"
-                                    .$pokaz['name_item'].
-                                "</div>
-                                <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
-                            </div>".
-                            
-                            "<div class='modal-header'>
-                            <div class='mb-2'>"
-                                .$pokaz['cytat_item'].
-                            "</div>
-                            </div>".
-        
-                            "<div class='modal-body'>"
-        
-                            //obrazek broni
-                            .'<img src="data:image/png;base64,'.base64_encode($pokaz['icon_item']).'">'.
-                            //opis broni
-                            "<div class='mb-2'>Opis broni</div>".
-                            "<span style='font-size: 70%;'>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit alias libero inventore nam voluptates voluptas voluptate sapiente pariatur culpa iusto. Quisquam sunt possimus consequuntur, veniam deserunt dolorem odit nostrum nam!
-                            </span>".
-                            //bronie
-                            "<div class='mb-2'>Statystyki</div>".
-                            //statystyki
-                            "<div class='text-start'>";
-                            echo "<table>";
-                            //<tr style='border: 1px solid white; float: center; font-size: 50%;'>
-        
-                            echo '<tr class="statsy_bron"><td>NAZWA PRZEDMIOTU</td><td>'.$pokaz[1].'</td></tr>';
-                            echo '<tr class="statsy_bron"><td>WPIS W AMMUNOMICONIE</td><td>'.$pokaz[2].'</td></tr>';
-                            echo '<tr class="statsy_bron"><td>JAKOŚĆ</td><td>'.'<img style="width: 10%;" src="data:image/png;base64,'.base64_encode($pokaz['image_quality']).'">'.'</td></tr>';
-                            echo '<tr class="statsy_bron"><td>TYP PRZEDMIOTU</td><td>'.$pokaz[5].'</td></tr>';
-                            echo '<tr class="statsy_bron"><td>CENA SPRZEDAŻY DZIWAKOWI</td><td>'.$pokaz[6].'</td></tr>';  
-                            echo '</table><br><br>
+                        <div class='col-sm-3 text-center'>
+                            <button type='button' class='btn m-1 btn-dark w-75' data-bs-toggle='modal' data-bs-target='#".$licz."'>
+                            ".'<img src="data:image/png;base64,'.base64_encode($pokaz['icon_item']).'">'."
+                                <h4>".$pokaz['name_item']."</h4>
+                            </button>
+            
+                            <div class='modal fade mt-5 text-dark-emphasis' data-bs-theme='dark' id='".$licz."' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+                                <div class='modal-dialog'>
+                                    <div class='modal-content'>
+                                    
+                                    <div id='cale_te'>
+                                    
+                                        <div style='display: flex; justify-content: right;'>
+                                            <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+                                        </div>
+            
+                                        <div id='naglowek_okienko'>
+                                            <div id='obrazek_okienko'>
+                                                ".'<img style="width: 180%;" src="data:image/png;base64,'.base64_encode($pokaz['icon_item']).'">'."
+                                            </div>
+                                            
+                                            <div id='nazwa_okienko'>
+            
+                                                <div class='mb-2'>
+                                                    ".$pokaz['name_item']."
+                                                </div>
+                                                <hr>
+                                                <div class='mb-2'>
+                                                    ".$pokaz['cytat_item']."
+                                                </div>
+                                            </div>
+                                        </div>
+            
+                                        <div class='modal-body'>
+                                            <br>
+                                            <span style='font-size: 70%;'>
+                                            ".$pokaz['opis']."
+                                            </span>
+                                            <br>
+                                            
+                                            <div class='statsy'>
+                                                <table>
+                                                    <tr class='statsy_bron'><td>JAKOŚĆ</td><td>".'<img style="width: 25%;" src="data:image/png;base64,'.base64_encode($pokaz['image_quality']).'">'."</td></tr>
+                                                    <tr class='statsy_bron'><td>TYP PRZEDMIOTU</td><td>".$pokaz['type_item']."</td></tr>
+                                                    <tr class='statsy_bron'><td>CENA SPRZEDAŻY DZIWAKOWI</td><td>".$pokaz['creep_sell_price']."</td></tr></table><br>
+                                            </div>
+                                        </div>
+            
+                                        </div>
+            
+                                    </div>
+                                </div>
                             </div>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-                    </div>';
-        
-                $licz++;
+                        </div>";
+                    $licz++;
                 }
             }
         echo '</table>';
