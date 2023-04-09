@@ -13,9 +13,6 @@
 }
 
 body{
-    height: 80%;
-    color: #3d2564;
-    background-color: #cba8e0;
     background-image: url("img/tlo.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
