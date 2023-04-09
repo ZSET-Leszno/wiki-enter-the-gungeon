@@ -20,9 +20,11 @@ function tabela_bron(){
         elseif($pokaz['exist_bron']=='1'){
             echo "
             <div class='col-sm-3 text-center'>
-                <button type='button' class='btn m-1 btn-dark w-75' data-bs-toggle='modal' data-bs-target='#".$licz."'>
+                <button style='padding: 0; margin:0; height:14vh' type='button' class='btn m-1 btn-dark w-75' data-bs-toggle='modal' data-bs-target='#".$licz."'>
+                <div id='cale_te_bron'>
                 ".'<img src="data:image/png;base64,'.base64_encode($pokaz['icon_bron']).'">'."
-                    <h4>".$pokaz['name_bron']."</h4>
+                    <h2>".$pokaz['name_bron']."</h2>
+                </div>
                 </button>
 
 
@@ -106,7 +108,6 @@ echo '<br>';
         $wynik=mysqli_query($conn,$zapytanie);
         $ile_rekord=mysqli_num_rows($wynik);
         $licz=1;
-        echo "<div style='display:flex; flex-direction:column;'>";
         echo "<div class='row mb-3 mt-2'>";
         while ($licz<=$ile_rekord){
             if($licz==4 || $licz==7){
@@ -118,90 +119,89 @@ echo '<br>';
 
             echo "
                 <div class='col-sm-3 text-center'>
-                    <button type='button' class='btn m-1 btn-dark w-75' data-bs-toggle='modal' data-bs-target='#".$pokaz['name_gungeoneer'].$licz."'>"
-                        //obrazek postaci
-                        .'<img style="height:150px;" src="data:image/png;base64,'.base64_encode($pokaz[5]).'">'."<br>"
-                        //nazwa postaci
-                        ."<h4>".$pokaz['name_gungeoneer']."</h4>".
-                    "</button>".
+                    <button style='padding: 0; margin:0; height:20vh' type='button' class='btn m-1 btn-dark w-75' data-bs-toggle='modal' data-bs-target='#".$licz."'>".
+                        "<div id='cale_te'>"
+                        .'<img style="height:150px;" src="data:image/png;base64,'.base64_encode($pokaz[5]).'">'     
+                        ."<h2>".$pokaz['name_gungeoneer']."</h2>".
+                        "</div>
+                    </button>".
 
                     //środek
-                    "<div class='modal fade mt-5 text-dark-emphasis' data-bs-theme='dark' id=".$pokaz['name_gungeoneer'].$licz." tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+                    "<div style='--bs-modal-width: 700px;' class='modal fade mt-5 text-dark-emphasis' data-bs-theme='dark' id='".$licz."' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
                     <div class='modal-dialog'>
                         <div class='modal-content'>
-                        <div class='modal-header'>
-                            <div class='mb-2'>"
-                                .$pokaz['name_gungeoneer'].
-                            "</div>
-                            <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
-                        </div>".
+                        
+                        <div id='cale_te'>
+                        
+                            <div style='display: flex; justify-content: right;'>
+                                <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+                            </div>
 
-                        "<div class='modal-body'>"
+                            <div id='naglowek_okienko'>
+                                <div style='display: flex; flex-direction: column;'> 
+                                    <div id='obrazek_okienko'>
+                                        ".'<img style="height: 15vh;" src="data:image/png;base64,'.base64_encode($pokaz['portret_gungeoneer']).'">'."
+                                    </div>
+                                </div>
+                                
+                                <div id='nazwa_okienko'>
+                                    <div class='mb-2'>
+                                        <span style='font-size: 5vh;'>
+                                            ".$pokaz['name_gungeoneer']."
+                                        </span>
+                                    </div>
+                                    <hr>
+                                </div>
+                            </div>
+                            <br>
+                            
+                            <div class='mb-2'>Wygląd postaci</div>"
+                            .'<table><tr><td><h4>Podstawowy</h4></td><td><h4>Alternatywny</h4></td></tr>
+                            <tr><td><img style="width: 40%;" src="data:image/png;base64,'.base64_encode($pokaz['icon_gungeoneer']).'"></td><td><img style="width: 40%;" src="data:image/png;base64,'.base64_encode($pokaz['alt_gungeoneer']).'"></td></tr></table>'.
 
-                        //portret postaci
-                        .'<img style="height:100px;" src="data:image/png;base64,'.base64_encode($pokaz[2]).'">'.
-                        '<img style="height:100px;" src="data:image/png;base64,'.base64_encode($pokaz[3]).'">'
-                        //opis postaci
-                        ."<div class='mb-2'>Opis postaci</div>".
-                        "<span style='font-size: 70%;'>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit alias libero inventore nam voluptates voluptas voluptate sapiente pariatur culpa iusto. Quisquam sunt possimus consequuntur, veniam deserunt dolorem odit nostrum nam!
-                        </span>".
                         //bronie
+                        "<br>".
                         "<div class='mb-2'>Bronie startowe</div>"
                         //pierwsza broń
-                        .'<img src="data:image/png;base64,'.base64_encode($pokaz[15]).'">'."<br>"."<a>bron 1</a>"."<br>";
+                        .'<table><tr><td><img  src="data:image/png;base64,'.base64_encode($pokaz[16]).'">'."</td><td>"."<h4>".$pokaz[13]."</h4>"."</td></tr>";
                         //druga broń
-                        if($pokaz[39]==1){
-                            echo '<img src="data:image/png;base64,'.base64_encode($pokaz[29]).'">'."<br>"."<a>bron 2</a>"."<br>";
+                        if($pokaz[41]==1){
+                            echo '<tr><td><img src="data:image/png;base64,'.base64_encode($pokaz[31]).'">'."</td><td>"."<h4>".$pokaz[28]."</h4>"."</td></tr></table><br>";
                         }
                         //losowa broń
-                        elseif($pokaz[27]=='Losowa broń'){
-                            echo '<img src="data:image/png;base64,'.base64_encode($pokaz[29]).'">'."<br>"."<a>bron 2</a>"."<br>";
+                        elseif($pokaz[28]=='Losowa broń'){
+                            echo '<tr><td><img src="data:image/png;base64,'.base64_encode($pokaz[31]).'">'."</td><td>"."<h4>".$pokaz[28]."</h4>"."</td></tr></table><br>";
                         }
+                        else{
+                            echo "</table><br>";
+                        }
+                        
                         //przedmioty
                         echo "<div class='mb-2'>Przedmioty startowe</div>";
                         //pierwszy przedmiot
-                        echo '<td>'.'<img src="data:image/png;base64,'.base64_encode($pokaz[43]).'">'."<br>"."<a>przedmiot 1</a>"."<br>";
+                        echo 
+                        '<table><tr><td>
+                        <img src="data:image/png;base64,'.base64_encode($pokaz[46]).'">'."</td><td>"."<h4>".$pokaz[43]."</h4>"."</td></tr>";
                         //drugi przedmiot
-                        if($pokaz[55]==1){
-                            echo '<img src="data:image/png;base64,'.base64_encode($pokaz[51]).'">'."<br>"."<a>przedmiot 2</a>"."<br>";
+                        if($pokaz[59]==1){
+                            echo '<tr><td><img src="data:image/png;base64,'.base64_encode($pokaz[55]).'">'."</td><td>"."<h4>".$pokaz[52]."</h4>"."</td></tr>";
                             //trzeci przedmiot
-                            if($pokaz[63]==1){
-                                echo '<img src="data:image/png;base64,'.base64_encode($pokaz[59]).'">'."<br>"."<a>przedmiot 3</a>"."<br>";
+                            if($pokaz[64]==1){
+                                echo '<tr><td><img src="data:image/png;base64,'.base64_encode($pokaz[68]).'">'."</td><td>"."<h4>".$pokaz[61]."</h4>"."</td></tr></table><br>";
                             }
-                            //elseif($pokaz[63]==0){
-                            //    echo "</td><tr>";
-                            //}
+                            else{
+                                echo "</table>";
+                            }
                         }
-                        //elseif($pokaz[55]==0){
-                        //    echo "</td><tr>";
-                        //}
+                        else{
+                            echo "</table>";
+                        }
                         echo
-                        "</div>
+                        "<br><br></div>
                         </div>
                     </div>
                     </div>
                 </div>";
-
-
-
-            //obrazek/nazwa postaci
-            //     echo "<tr><td>".'<img style="height:100px;" src="data:image/png;base64,'.base64_encode($pokaz[4]).'">'."</td><td>".
-            //pierwsza broń
-            //    '<img src="data:image/png;base64,'.base64_encode($pokaz[15]).'">';
-            //druga broń
-            //if($pokaz[39]==1){
-            //    echo '<img src="data:image/png;base64,'.base64_encode($pokaz[29]).'">'."</td>";
-            //}
-            //elseif($pokaz[27]=='Losowa broń'){
-            //    echo '<img src="data:image/png;base64,'.base64_encode($pokaz[29]).'">'."</td>";
-            //}
-            //else{
-            //    echo "</td>";
-            //}
-            //pierwszy przedmiot
-            //echo '<td>'.'<img src="data:image/png;base64,'.base64_encode($pokaz[43]).'">';
-            //drugi przedmiot
 
             $licz++;
         }
@@ -230,22 +230,24 @@ echo '<br>';
                 }
                 elseif ($pokaz['exist_item']=='1'){
                     echo "
-                        <div class='col-sm-3 text-center'>
-                            <button type='button' class='btn m-1 btn-dark w-75' data-bs-toggle='modal' data-bs-target='#".$licz."'>
-                            ".'<img src="data:image/png;base64,'.base64_encode($pokaz['icon_item']).'">'."
-                                <h4>".$pokaz['name_item']."</h4>
-                            </button>
+                    <div style='margin-top:1%;' class='col-sm-3 text-center'>
+                        <button style='padding: 0; margin:0; height:20vh' type='button' class='btn m-1 btn-dark w-75' data-bs-toggle='modal' data-bs-target='#".$licz."'>
+                            <div id='cale_te_item'>
+                                ".'<img src="data:image/png;base64,'.base64_encode($pokaz['icon_item']).'">'."
+                                <h2>".$pokaz['name_item']."</h2>
+                            </div>
+                        </button>
             
-                            <div class='modal fade mt-5 text-dark-emphasis' data-bs-theme='dark' id='".$licz."' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
-                                <div class='modal-dialog'>
-                                    <div class='modal-content'>
-                                    
-                                    <div id='cale_te'>
-                                    
-                                        <div style='display: flex; justify-content: right;'>
-                                            <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
-                                        </div>
-            
+                        <div class='modal fade mt-5 text-dark-emphasis' data-bs-theme='dark' id='".$licz."' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+                            <div class='modal-dialog'>
+                                <div class='modal-content'>
+                                
+                                <div id='cale_te'>
+                                
+                                    <div style='display: flex; justify-content: right;'>
+                                        <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+                                    </div>
+        
                                         <div id='naglowek_okienko'>
                                             <div id='obrazek_okienko'>
                                                 ".'<img style="width: 180%;" src="data:image/png;base64,'.base64_encode($pokaz['icon_item']).'">'."
@@ -272,7 +274,7 @@ echo '<br>';
                                             
                                             <div class='statsy'>
                                                 <table>
-                                                    <tr class='statsy_bron'><td>JAKOŚĆ</td><td>".'<img style="width: 25%;" src="data:image/png;base64,'.base64_encode($pokaz['image_quality']).'">'."</td></tr>
+                                                    <tr class='statsy_bron'><td>JAKOŚĆ</td><td>".'<img style="width: 15%;" src="data:image/png;base64,'.base64_encode($pokaz['image_quality']).'">'."</td></tr>
                                                     <tr class='statsy_bron'><td>TYP PRZEDMIOTU</td><td>".$pokaz['type_item']."</td></tr>
                                                     <tr class='statsy_bron'><td>CENA SPRZEDAŻY DZIWAKOWI</td><td>".$pokaz['creep_sell_price']."</td></tr></table><br>
                                             </div>
@@ -287,7 +289,6 @@ echo '<br>';
                     $licz++;
                 }
             }
-        echo '</table>';
     }
 ?>
 
@@ -303,68 +304,75 @@ echo '<br>';
         echo "<div class='row mb-3 mt-2'>";
         while ($licz<=$ile_rekord){
             $pokaz=mysqli_fetch_array($wynik);
-
             echo "
-                    <div class='col-sm-3 text-center'>
-                        <button type='button' class='btn m-1 btn-dark w-75' data-bs-toggle='modal' data-bs-target='#".$licz."'>"
-                            //obrazek postaci
-                            .'<img src="data:image/png;base64,'.base64_encode($pokaz['icon_enemy']).'">'
-                            //nazwa postaci
-                            ."<h4>".$pokaz['name_enemy']."</h4>".
-                        "</button>".
-        
-                        //środek
-                        "<div class='modal fade mt-5 text-dark-emphasis' data-bs-theme='dark' id=".$licz." tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
-                        <div class='modal-dialog'>
-                            <div class='modal-content'>
-                            <div class='modal-header'>
-                                <div class='mb-2'>"
-                                    .$pokaz['name_enemy'].
-                                "</div>
+            <div class='col-sm-3 text-center'>
+                <button style='padding: 0; margin:0; height:25vh' type='button' class='btn m-1 btn-dark w-75' data-bs-toggle='modal' data-bs-target='#".$licz."'>
+                <div id='cale_te_enemy'>
+                ".'<img src="data:image/png;base64,'.base64_encode($pokaz['icon_enemy']).'">'."
+                    <h2>".$pokaz['name_enemy']."</h2>
+                <div>
+                </button>
+
+
+                <div class='modal fade mt-5 text-dark-emphasis' data-bs-theme='dark' id='".$licz."' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+                    <div class='modal-dialog'>
+                        <div class='modal-content'>
+                        
+                        <div id='cale_te'>
+                        
+                            <div style='display: flex; justify-content: right;'>
                                 <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
-                            </div>".
-
-                            "<div class='modal-header'>
-                            <div class='mb-2'>"
-                                .$pokaz['cytat_enemy'].
-                            "</div>
-                            </div>"
-
-                            .'<img src="data:image/png;base64,'.base64_encode($pokaz['baner_enemy']).'">'.
-        
-                            "<div class='modal-body'>"
-        
-                            //obrazek broni
-                            .'<img src="data:image/png;base64,'.base64_encode($pokaz['icon_enemy']).'">'.
-                            //opis broni
-                            "<div class='mb-2'>Opis broni</div>".
-                            "<span style='font-size: 70%;'>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit alias libero inventore nam voluptates voluptas voluptate sapiente pariatur culpa iusto. Quisquam sunt possimus consequuntur, veniam deserunt dolorem odit nostrum nam!
-                            </span>".
-                            //bronie
-                            "<div class='mb-2'>Statystyki</div>".
-                            //statystyki
-                            "<div class='text-start'>";
-                            echo "<table>";
-                            //<tr style='border: 1px solid white; float: center; font-size: 50%;'>
-        
-
-                            echo '<tr class="statsy_bron"><td>NAZWA</td><td>'.$pokaz['name_enemy'].'</td></tr>';
-                            echo '<tr class="statsy_bron"><td>WPIS W AMMUNOMICONIE</td><td>'.$pokaz['cytat_enemy'].'</td></tr>';
-                            echo '<tr class="statsy_bron"><td>PODSTAWOWE ZDROWIE</td><td>'.$pokaz['basehealth_enemy'].'</td></tr>';  
-                            echo '</table><br><br>
                             </div>
+
+                            <div id='naglowek_okienko'>
+                                <div style='display: flex; flex-direction: column;'> 
+                                    <div id='obrazek_okienko'>
+                                        ".'<img style="width: 180%;" src="data:image/png;base64,'.base64_encode($pokaz['icon_enemy']).'">'."
+                                    </div>
+                                    <div class='statsy'>
+                                        <table style='width: 100%;'>
+                                            <tr class='statsy_bron'><td>HP</td><td style='width: 50%;'>".$pokaz['basehealth_enemy']."</td></tr>
+                                        </table>
+                                    </div>
+                                </div>
+                                
+                                <div id='nazwa_okienko'>
+
+                                    <div class='mb-2'>
+                                        ".$pokaz['name_enemy']."
+                                    </div>
+                                    <hr>
+                                    <div class='mb-2'>
+                                        ".$pokaz['cytat_enemy']."
+                                    </div>
+                                </div>
                             </div>
+
+                                ".'<img style="padding: 4vh; width: 100%;" src="data:image/png;base64,'.base64_encode($pokaz['baner_enemy']).'">'."
+                            
+                            
+
+                            <div class='modal-body'>
+                                <br>
+                                <span style='font-size: 70%;'>
+                                ".$pokaz['opis']."
+                                </span>
+                                <br>
+                                
+
                             </div>
+
+                            </div>
+
                         </div>
-                        </div>
-                    </div>';
-        
-                $licz++;
+                    </div>
+                </div>
+            </div>";
+
+        $licz++;
             }
-        echo '</table>';
-    }
-        
+        }
+ 
 ?>
 
 <?php

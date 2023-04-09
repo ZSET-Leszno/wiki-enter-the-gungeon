@@ -208,6 +208,7 @@ footer{
     align-items: center;
 }
 table{
+    width: 100%;
     border-collapse: collapse;
 
 }
@@ -216,14 +217,16 @@ table{
     font-size:50%;
 }
 td{
-    width: 80%;
+    width: 50%;
     border: 5px solid #2e1158!important;
+    padding:2%;
 }
 #naglowek_okienko{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    
 }
 #obrazek_okienko{
     display: flex;
@@ -240,15 +243,50 @@ td{
 .mb-2{
     font-size: 85%;
     font-weight: bold;
+    
 }
 .modal-body{
     display: flex;
     flex-direction: column;
 }
+
 #cale_te{
     background-color: #0f0028;
     border: 5px solid #2e1158!important;
     color: #dcbdee;
+}
+#cale_te_bron{
+    background-color: #0f0028;
+    border: 5px solid #2e1158!important;
+    color: #dcbdee;
+    height:14vh;
+    vertical-align: middle;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    flex-direction: column;
+}
+#cale_te_item{
+    background-color: #0f0028;
+    border: 5px solid #2e1158!important;
+    color: #dcbdee;
+    height:20vh;
+    vertical-align: middle;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    flex-direction: column;
+}
+#cale_te_enemy{
+    background-color: #0f0028;
+    border: 5px solid #2e1158!important;
+    color: #dcbdee;
+    height:25vh;
+    vertical-align: middle;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 
