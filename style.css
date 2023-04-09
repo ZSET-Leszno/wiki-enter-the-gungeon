@@ -19,7 +19,7 @@ body{
     background-image: url("img/tlo.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
-
+    background-size: 100%;
 }
 header{
     height: 10%;
