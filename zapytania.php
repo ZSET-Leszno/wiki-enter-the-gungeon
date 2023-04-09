@@ -67,7 +67,7 @@ function tabela_bron(){
                                 
                                 <div class='statsy'>
                                     <table>
-                                        <tr class='statsy_bron'><td>JAKOŚĆ</td><td>".'<img style="width: 25%;" src="data:image/png;base64,'.base64_encode($pokaz['image_quality']).'">'."</td></tr>
+                                        <tr class='statsy_bron'><td>JAKOŚĆ</td><td>".'<img style="width: 15%;" src="data:image/png;base64,'.base64_encode($pokaz['image_quality']).'">'."</td></tr>
                                         <tr class='statsy_bron'><td>TYP BRONI</td><td>".$pokaz['type_bron']."</td></tr>
                                         <tr class='statsy_bron'><td>ROZMIAR MAGAZYNKU</td><td>".$pokaz['magazine_size']."</td></tr>
                                         <tr class='statsy_bron'><td>MAKSYMALNA ILOŚĆ AMUNICJI</td><td>".$pokaz['max_ammo']."</td></tr>
