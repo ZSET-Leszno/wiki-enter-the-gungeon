@@ -60,10 +60,15 @@ function tabela_bron(){
 
                             <div class='modal-body'>
                                 <br>
+                                <div class='mb-2'>Ammunomicon</div>
                                 <span style='font-size: 70%;'>
                                 ".$pokaz['opis']."
                                 </span>
                                 <br>
+                                <div class='mb-2'>Opis</div>
+                                <span style='font-size: 70%;'>
+                                ".$pokaz['opis_2']."
+                                </span>
                                 
                                 <div class='statsy'>
                                     <table>
@@ -121,7 +126,7 @@ echo '<br>';
                 <div class='col-sm-3 text-center'>
                     <button style='padding: 0; margin:0; height:20vh' type='button' class='btn m-1 btn-dark w-75' data-bs-toggle='modal' data-bs-target='#".$licz."'>".
                         "<div id='cale_te'>"
-                        .'<img style="height:150px;" src="data:image/png;base64,'.base64_encode($pokaz[5]).'">'     
+                        .'<img style="height:150px;" src="data:image/png;base64,'.base64_encode($pokaz['baner_gungeoneer']).'">'     
                         ."<h2>".$pokaz['name_gungeoneer']."</h2>".
                         "</div>
                     </button>".
@@ -163,14 +168,14 @@ echo '<br>';
                         "<br>".
                         "<div class='mb-2'>Bronie startowe</div>"
                         //pierwsza broń
-                        .'<table><tr><td><img  src="data:image/png;base64,'.base64_encode($pokaz[16]).'">'."</td><td>"."<h4>".$pokaz[13]."</h4>"."</td></tr>";
+                        .'<table><tr><td><img  src="data:image/png;base64,'.base64_encode($pokaz[17]).'">'."</td><td>"."<h4>".$pokaz[13]."</h4>"."</td></tr>";
                         //druga broń
-                        if($pokaz[41]==1){
-                            echo '<tr><td><img src="data:image/png;base64,'.base64_encode($pokaz[31]).'">'."</td><td>"."<h4>".$pokaz[28]."</h4>"."</td></tr></table><br>";
+                        if($pokaz[43]==1){
+                            echo '<tr><td><img src="data:image/png;base64,'.base64_encode($pokaz[33]).'">'."</td><td>"."<h4>".$pokaz[29]."</h4>"."</td></tr></table><br>";
                         }
                         //losowa broń
-                        elseif($pokaz[28]=='Losowa broń'){
-                            echo '<tr><td><img src="data:image/png;base64,'.base64_encode($pokaz[31]).'">'."</td><td>"."<h4>".$pokaz[28]."</h4>"."</td></tr></table><br>";
+                        elseif($pokaz[29]=='Losowa broń'){
+                            echo '<tr><td><img src="data:image/png;base64,'.base64_encode($pokaz[33]).'">'."</td><td>"."<h4>".$pokaz[29]."</h4>"."</td></tr></table><br>";
                         }
                         else{
                             echo "</table><br>";
@@ -181,13 +186,13 @@ echo '<br>';
                         //pierwszy przedmiot
                         echo 
                         '<table><tr><td>
-                        <img src="data:image/png;base64,'.base64_encode($pokaz[46]).'">'."</td><td>"."<h4>".$pokaz[43]."</h4>"."</td></tr>";
+                        <img src="data:image/png;base64,'.base64_encode($pokaz[49]).'">'."</td><td>"."<h4>".$pokaz[45]."</h4>"."</td></tr>";
                         //drugi przedmiot
-                        if($pokaz[59]==1){
-                            echo '<tr><td><img src="data:image/png;base64,'.base64_encode($pokaz[55]).'">'."</td><td>"."<h4>".$pokaz[52]."</h4>"."</td></tr>";
+                        if($pokaz[63]==1){
+                            echo '<tr><td><img src="data:image/png;base64,'.base64_encode($pokaz[59]).'">'."</td><td>"."<h4>".$pokaz[55]."</h4>"."</td></tr>";
                             //trzeci przedmiot
-                            if($pokaz[64]==1){
-                                echo '<tr><td><img src="data:image/png;base64,'.base64_encode($pokaz[68]).'">'."</td><td>"."<h4>".$pokaz[61]."</h4>"."</td></tr></table><br>";
+                            if($pokaz[73]==1){
+                                echo '<tr><td><img src="data:image/png;base64,'.base64_encode($pokaz[69]).'">'."</td><td>"."<h4>".$pokaz[65]."</h4>"."</td></tr></table><br>";
                             }
                             else{
                                 echo "</table>";
@@ -269,6 +274,10 @@ echo '<br>';
                                             <br>
                                             <span style='font-size: 70%;'>
                                             ".$pokaz['opis']."
+                                            </span>
+                                            <br><br>
+                                            <span style='font-size: 70%;'>
+                                            ".$pokaz['opis_2']."
                                             </span>
                                             <br>
                                             
