@@ -3,4 +3,6 @@
     $user_baza="root";
     $pass_baza="";
     $name_baza="etgwiki";
+
+
 ?>
