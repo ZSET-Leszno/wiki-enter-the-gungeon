@@ -394,7 +394,7 @@ echo '<br>';
         
         echo "
             <div class='col-sm-4 text-center'>
-                <button style='padding: 0; margin:0; height:30vh' type='button' class='btn m-1 btn-dark w-75' data-bs-toggle='modal' data-bs-target='#".$pokaz['name_boss']."'>
+                <button style='padding: 0; margin:0; height:30vh' type='button' class='btn m-1 btn-dark w-75' data-bs-toggle='modal' data-bs-target='#".$pokaz['id']."'>
                 <div id='cale_te_boss'>
                 ".'<img style="height: 18vh; width: fit;" src="data:image/png;base64,'.base64_encode($pokaz['icon_boss']).'">'."
                     <h2>".$pokaz['name_boss']."</h2>
@@ -402,7 +402,7 @@ echo '<br>';
                 </button>
     
     
-                <div class='modal fade mt-5 text-dark-emphasis' data-bs-theme='dark' id='".$pokaz['name_boss']."' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+                <div class='modal fade mt-5 text-dark-emphasis' data-bs-theme='dark' id='".$pokaz['id']."' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
                     <div class='modal-dialog'>
                         <div class='modal-content'>
                         
