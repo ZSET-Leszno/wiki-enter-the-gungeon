@@ -388,7 +388,7 @@ echo '<br>';
     function tabela_boss_drzwi(){
         include "config.php";
         $conn=mysqli_connect($lokacja_baza, $user_baza, $pass_baza, $name_baza);
-        $zapytanie='SELECT * FROM boss where name_boss="Władca Drzwi";';
+        $zapytanie='SELECT * FROM boss where type="door";';
         $wynik=mysqli_query($conn,$zapytanie);
         $pokaz=mysqli_fetch_array($wynik);
         
