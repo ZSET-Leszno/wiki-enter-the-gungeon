@@ -5,6 +5,14 @@
         <?php
             include 'zapytania.php';
             tabela_enemy();
+            
+        ?>
+        <?php
+            //include 'zapytania.php';
+            //tabela_boss_1();
+
+
+
         ?>
     </main>
     <footer>

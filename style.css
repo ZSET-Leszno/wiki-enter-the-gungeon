@@ -20,6 +20,7 @@ body{
     background-position: center;
     background-size: cover;
     height: 100%;
+
 }
 header{
     height: 10%;
@@ -255,6 +256,16 @@ td{
     border: 5px solid #2e1158!important;
     color: #dcbdee;
 }
+#cale_te_postacie{
+    background-color: #0f0028;
+    border: 5px solid #2e1158!important;
+    color: #dcbdee;
+    height:20vh;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    flex-direction: column;
+}
 #cale_te_bron{
     background-color: #0f0028;
     border: 5px solid #2e1158!important;
@@ -288,8 +299,17 @@ td{
     justify-content: center;
     flex-direction: column;
 }
-
-
+#cale_te_boss{
+    background-color: #0f0028;
+    border: 5px solid #2e1158!important;
+    color: #dcbdee;
+    height:30vh;
+    vertical-align: middle;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    flex-direction: column;
+}
 /*
 KOLORY:
 #810484

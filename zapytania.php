@@ -6,7 +6,7 @@ function tabela_bron(){
     $wynik=mysqli_query($conn,$zapytanie);
     $ile_rekord=mysqli_num_rows($wynik);
     $licz=1;
-    echo "<div class='row mb-3 mt-2'>";
+    echo "<div style='padding: 0px; margin:0;' class='row mb-3 mt-2'>";
     while($licz<=$ile_rekord){
         /*if($licz==5){
             echo '</div>';
@@ -113,19 +113,19 @@ echo '<br>';
         $wynik=mysqli_query($conn,$zapytanie);
         $ile_rekord=mysqli_num_rows($wynik);
         $licz=1;
-        echo "<div class='row mb-3 mt-2'>";
+        echo "<div style='padding: 0px; margin:0;' class='row mb-3 mt-2'>";
         while ($licz<=$ile_rekord){
             if($licz==4 || $licz==7){
 
                 echo '</div>';
-                echo "<div class='row mb-3 mt-2'>";
+                echo "<div style='padding: 0px; margin:0;' class='row mb-3 mt-2'>";
             }
             $pokaz=mysqli_fetch_array($wynik);
 
             echo "
                 <div class='col-sm-3 text-center'>
                     <button style='padding: 0; margin:0; height:20vh' type='button' class='btn m-1 btn-dark w-75' data-bs-toggle='modal' data-bs-target='#".$licz."'>".
-                        "<div id='cale_te'>"
+                        "<div id='cale_te_postacie'>"
                         .'<img style="height:150px;" src="data:image/png;base64,'.base64_encode($pokaz['baner_gungeoneer']).'">'     
                         ."<h2>".$pokaz['name_gungeoneer']."</h2>".
                         "</div>
@@ -227,7 +227,7 @@ echo '<br>';
         $ile_rekord=mysqli_num_rows($wynik);
         $licz=1;
 
-        echo "<div class='row mb-3 mt-2'>";
+        echo "<div style='padding: 0px; margin:0;' class='row mb-3 mt-2'>";
         while ($licz<=$ile_rekord){
                 $pokaz=mysqli_fetch_array($wynik);
                 if ($pokaz['exist_item']=='0'){
@@ -310,7 +310,7 @@ echo '<br>';
         $ile_rekord=mysqli_num_rows($wynik);
         $licz=1;
 
-        echo "<div class='row mb-3 mt-2'>";
+        echo "<div style='padding: 0px; margin:0;' class='row mb-3 mt-2'>";
         while ($licz<=$ile_rekord){
             $pokaz=mysqli_fetch_array($wynik);
             echo "
@@ -383,6 +383,107 @@ echo '<br>';
         }
  
 ?>
+
+<?php
+        function tabela_boss_1(){
+            include "config.php";
+            $conn=mysqli_connect($lokacja_baza, $user_baza, $pass_baza, $name_baza);
+            $zapytanie='SELECT * FROM boss JOIN floors ON boss.floor=floors.id where floor=2 AND type="normal";';
+            $wynik=mysqli_query($conn,$zapytanie);
+            $ile_rekord=mysqli_num_rows($wynik);
+            $licz=1;
+            echo "<div style='padding: 0px; margin:0;' class='row mb-3 mt-2'>";
+            while($licz<=$ile_rekord){
+                $pokaz=mysqli_fetch_array($wynik);
+                tabela_boss_podst();
+            }
+            echo '</div>';
+        }
+?>
+
+
+<?php
+    function tabela_boss_podst(){
+        echo "
+        <div class='col-sm-4 text-center'>
+            <button style='padding: 0; margin:0; height:30vh' type='button' class='btn m-1 btn-dark w-75' data-bs-toggle='modal' data-bs-target='#".$licz."'>
+            <div id='cale_te_boss'>
+            ".'<img style="height: 18vh; width: fit;" src="data:image/png;base64,'.base64_encode($pokaz['icon_boss']).'">'."
+                <h2>".$pokaz['name_boss']."</h2>
+            <div>
+            </button>
+
+
+            <div class='modal fade mt-5 text-dark-emphasis' data-bs-theme='dark' id='".$licz."' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+                <div class='modal-dialog'>
+                    <div class='modal-content'>
+                    
+                    <div id='cale_te'>
+                    
+                        <div style='display: flex; justify-content: right;'>
+                            <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+                        </div>
+
+                        <div id='naglowek_okienko'>
+                            <div style='display: flex; flex-direction: column;'> 
+                                <div id='obrazek_okienko'>
+                                    ".'<img style="width: 180%;" src="data:image/png;base64,'.base64_encode($pokaz['simple_boss']).'">'."
+                                </div>
+                                <div class='statsy'>
+                                    <table style='width: 100%;'>
+                                        <tr class='statsy_bron'><td>HP</td><td style='width: 50%;'>".$pokaz['health']."</td></tr>
+                                    </table>
+                                </div>
+                            </div>
+                            
+                            <div id='nazwa_okienko'>
+
+                                <div class='mb-2'>
+                                    ".$pokaz['name_boss']."
+                                </div>
+                                <hr>
+                                <div class='mb-2'>
+                                    ".$pokaz['cytat_boss']."
+                                </div>
+                            </div>
+                        </div>
+
+                            ".'<img style="padding: 4vh; width: 100%;" src="data:image/png;base64,'.base64_encode($pokaz['baner_boss']).'">'."
+                        
+                        
+
+                        <div class='modal-body'>
+                            <br>
+                            <div class='mb-2'>Ammunomicon</div>
+                            <span style='font-size: 70%;'>
+                            ".$pokaz['opis']."
+                            </span>
+                            <br>
+                            <div class='mb-2'>Zachowanie</div>
+                            <span style='font-size: 70%;'>
+                            ".$pokaz['zachowanie']."
+                            </span>
+                            <br>
+                            <div class='mb-2'>Ciekawostki</div>
+                            <span style='font-size: 70%;'>
+                            ".$pokaz['ciekawostki']."
+                            </span>
+                            <br>
+
+                        </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>";
+
+    $licz++;
+    }
+?>
+
+
 
 <?php
     function tabela_pietro(){
