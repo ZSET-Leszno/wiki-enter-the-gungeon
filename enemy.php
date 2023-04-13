@@ -2,12 +2,33 @@
   include 'naglowek.php';
 ?>
     <main>
+
+        <div style="display: flex; flex-direction: column; align-items: center;" class="boss_window">
+
+            <h1><b>Przeciwnicy</b></h1>
+            <span><b>W tej zakładce dowiecie się wszystkiego o przeciwnikach oraz bossach występujących w grz Enter the Gungeon, kliknij w jeden z poniższych przycisków, 
+                żeby zdecydować co chcesz zobaczyć</b></span>
+                <form method="post">
+                    <input type="submit" name="enemy" class="button" value="Przeciwnicy" />
+                    <input type="submit" name="boss" class="button" value="Bossowie" />
+                </form>
+        </div>
+
         <?php
-            //include 'zapytania.php';
-            //tabela_enemy();
-            
-        ?>
-        <?php
+        if(array_key_exists('enemy', $_POST)) {
+            enemy();
+        }
+        else if(array_key_exists('boss', $_POST)) {
+            boss();
+        }
+
+        function enemy(){
+            include 'zapytania.php';
+            tabela_enemy();
+
+        }
+
+        function boss(){
             $numer_boss=2;
             while($numer_boss<7){
                 include "config.php";
@@ -19,7 +40,12 @@
                 echo '<div class="boss_window">';
 
                 if($numer_boss==2){
-                    echo "<span>Twierdza Władcy Ołowiu</span>";
+                    echo "<div class='mb-2'>
+                            <span style='font-size: 5vh;'>
+                                Twierdza Władcy Ołowiu
+                            </span>
+                            </div>";
+                    //echo "<span>Twierdza Władcy Ołowiu</span>";
                 }
                 if($numer_boss==3){
                     echo "<span>Właściwy Loch Giwer</span>";
@@ -122,20 +148,20 @@
                 echo '</div></div>';
                 $numer_boss++;
             }
-            
-        ?>
-
-
-        <?php
             include "zapytania.php";
             echo '<div class="boss_window">';
             echo "<span>Sekretni Bossowie</span>";
             echo "<div style='padding: 0px; margin:0;' class='row mb-3 mt-2'>";
             tabela_boss_drzwi();
             echo "</div></div>";
+
+
+        }
         ?>
+
     </main>
-    <footer>
+    <br><br><br>
+    <footer style="position: fixed;">
         <a>Strona by Brajan Hylla & Joanna Muzyka</a>
     </footer>
 </body>

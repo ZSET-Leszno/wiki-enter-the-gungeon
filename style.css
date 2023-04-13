@@ -201,7 +201,7 @@ footer{
     height: 5%;
     background-color: #0f0028;
     color: #eed3fe;
-
+    position: relative;
     bottom: 0;
     width: 100%;
     display: flex;
@@ -314,7 +314,7 @@ td{
 .boss_window{
     background-color: rgb(238, 211, 254, 0.6);
 
-    width: 80%;
+    width: 85%;
 
     margin: 0.5%;
     margin-left: 8%;
@@ -323,6 +323,17 @@ td{
     border-color: #4a154d;
     border-style: double;
     border-radius: 10px;
+
+
+    
+}
+
+.button{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: #0f0028;
+    border: 5px solid #2e1158!important;
 }
 /*
 KOLORY:
