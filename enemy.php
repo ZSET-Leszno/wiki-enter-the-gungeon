@@ -48,16 +48,33 @@
                     //echo "<span>Twierdza Władcy Ołowiu</span>";
                 }
                 if($numer_boss==3){
-                    echo "<span>Właściwy Loch Giwer</span>";
+                    echo "<div class='mb-2'>
+                    <span style='font-size: 5vh;'>
+                        Właściwy Loch Giwer
+                    </span>
+                    </div>";
+
                 }
                 if($numer_boss==4){
-                    echo "<span>Kopalnia Czarnego Prochu</span>";
+                    echo "<div class='mb-2'>
+                    <span style='font-size: 5vh;'>
+                    Kopalnia Czarnego Prochu
+                    </span>
+                    </div>";
                 }
                 if($numer_boss==5){
-                    echo "<span>Uroczysko</span>";
+                    echo "<div class='mb-2'>
+                    <span style='font-size: 5vh;'>
+                    Uroczysko
+                    </span>
+                    </div>";
                 }
                 if($numer_boss==6){
-                    echo "<span>Kuźnia</span>";
+                    echo "<div class='mb-2'>
+                    <span style='font-size: 5vh;'>
+                    Kuźnia
+                    </span>
+                    </div>";
                 }
                 
                 echo "<div style='padding: 0px; margin:0;' class='row mb-3 mt-2'>";
@@ -150,7 +167,7 @@
             }
             include "zapytania.php";
             echo '<div class="boss_window">';
-            echo "<span>Sekretni Bossowie</span>";
+            echo "<div class='mb-2'><span style='font-size: 5vh;'>Sekretni Bossowie</span></div>";
             echo "<div style='padding: 0px; margin:0;' class='row mb-3 mt-2'>";
             tabela_boss_drzwi();
             echo "</div></div>";
