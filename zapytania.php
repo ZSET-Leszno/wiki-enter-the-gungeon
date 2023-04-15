@@ -6,20 +6,21 @@ function tabela_bron(){
     $wynik=mysqli_query($conn,$zapytanie);
     $ile_rekord=mysqli_num_rows($wynik);
     $licz=1;
+    
+    if(isset($_POST["nazwa"])){
+        $nazwa=$_POST["nazwa"];
+        echo "<p><a href='#".$nazwa."'>Pokaż wyszukaną broń</a></p>";
+    }
+
     echo "<div style='padding: 0px; margin:0;' class='row mb-3 mt-2'>";
     while($licz<=$ile_rekord){
-        /*if($licz==5){
-            echo '</div>';
-            echo "<div class='row mb-3 mt-2'>";
-        }*/
-        
         $pokaz=mysqli_fetch_array($wynik);
         if ($pokaz['exist_bron']=='0'){
             break;
         }
         elseif($pokaz['exist_bron']=='1'){
             echo "
-            <div class='col-sm-3 text-center'>
+            <div id='".$pokaz['name_bron']."' class='col-sm-3 text-center'>
                 <button style='padding: 0; margin:0; height:14vh' type='button' class='btn m-1 btn-dark w-75' data-bs-toggle='modal' data-bs-target='#".$licz."'>
                 <div id='cale_te_bron'>
                 ".'<img src="data:image/png;base64,'.base64_encode($pokaz['icon_bron']).'">'."
@@ -520,6 +521,12 @@ echo '<br>';
     }    
 ?>
 
+
+
+
+
+
+
 <?php
     function tabela_monety(){
         include "config.php";
@@ -532,27 +539,78 @@ echo '<br>';
         while ($licz<=$ile_rekord){
             $pokaz=mysqli_fetch_array($wynik);
             if($pokaz['name_pickup']=='Brązowa łuska'){
-                echo '<img style="height:30px;" src="data:image/png;base64,'.base64_encode($pokaz['icon_pickup']).'">'.'('.$pokaz['name_pickup'].') jest wart 1 Łuskę.'.'<br>';
+                echo '<img style="height:40px;" src="data:image/png;base64,'.base64_encode($pokaz['icon_pickup']).'">'.' - ('.$pokaz['name_pickup'].') jest warta 1 Łuskę.'.'<br>';
                 $licz++;
             }
             elseif($pokaz['name_pickup']=='Srebrna łuska'){
-                echo '<img style="height:30px;" src="data:image/png;base64,'.base64_encode($pokaz['icon_pickup']).'">'.'('.$pokaz['name_pickup'].') jest wart 5 Łusek.'.'<br>';
+                echo '<img style="height:40px;" src="data:image/png;base64,'.base64_encode($pokaz['icon_pickup']).'">'.' - ('.$pokaz['name_pickup'].') jest warta 5 Łusek.'.'<br>';
                 $licz++;
             }
             elseif($pokaz['name_pickup']=='Złota łuska'){
-                echo '<img style="height:30px;" src="data:image/png;base64,'.base64_encode($pokaz['icon_pickup']).'">'.'('.$pokaz['name_pickup'].') jest wart 50 Łusek.'.'<br>';
+                echo '<img style="height:40px;" src="data:image/png;base64,'.base64_encode($pokaz['icon_pickup']).'">'.' - ('.$pokaz['name_pickup'].') jest warta 50 Łusek.'.'<br>';
                 $licz++;
             }
         }
         
     }
 ?>
-
 <?php
-function test(){
-    if (mysqli_connect_errno()) {
-        echo "Failed to connect to MySQL: " . mysqli_connect_error();
-        exit();
-      }
-}
+    function tabela_kredyty(){
+        include "config.php";
+        $conn=mysqli_connect($lokacja_baza, $user_baza, $pass_baza, $name_baza);
+        $zapytanie='SELECT * FROM pickupy where name_pickup like "Kredyty%";';
+        $wynik=mysqli_query($conn,$zapytanie);
+        $pokaz=mysqli_fetch_array($wynik);
+        echo '<p><img style="height:40px;" src="data:image/png;base64,'.base64_encode($pokaz['icon_pickup']).'">'.' - '.$pokaz['name_pickup'].'<p>';
+        }
+?>
+<?php
+    function tabela_Klucze(){
+        include "config.php";
+        $conn=mysqli_connect($lokacja_baza, $user_baza, $pass_baza, $name_baza);
+        $zapytanie='SELECT * FROM pickupy where name_pickup like "%klucz%";';
+        $wynik=mysqli_query($conn,$zapytanie);
+        $ile_rekord=mysqli_num_rows($wynik);
+        $licz=1;
+
+        while ($licz<=$ile_rekord){
+            $pokaz=mysqli_fetch_array($wynik);
+            if($pokaz['name_pickup']=='Klucz'){
+                echo '<p><img style="height:40px;" src="data:image/png;base64,'.base64_encode($pokaz['icon_pickup']).'"><p>'.
+                    '<p><b>
+                        Keys are used to open locked chests and doors, as well as the trapdoor to the Oubliette and the trapdoor to the passageway to the Resourceful Rats Lair.
+                        Every Shop apart from the Forges shop will always have at least one key for sale.
+                        Flynt uses keys instead of coins in exchange for his items.
+                    </b></p><br><br>';
+                $licz++;
+            }
+            elseif($pokaz['name_pickup']=='Klucz do celi'){
+                echo "<div class='mb-2'>
+                <span style='font-size: 45px;'>".
+                    $pokaz['name_pickup']
+                ."</span>
+            </div>";
+            echo '<p><img style="height:40px;" src="data:image/png;base64,'.base64_encode($pokaz['icon_pickup']).'"><p>'.
+                '<p><b>
+                    Cell keys are used to open cells to free NPCs. On any floor with a cell, a cell key will drop from a random enemy on the floor (including the boss). 
+                    They cannot be used as regular keys. Cell keys are automatically collected by the player if they attempt to leave them behind.
+                </b></p><br><br>';
+                $licz++;
+            }
+            elseif($pokaz['name_pickup']=='Szczurzy klucz'){
+                echo "<div class='mb-2'>
+                <span style='font-size: 45px;'>".
+                    $pokaz['name_pickup']
+                ."</span>
+            </div>";
+                echo '<p><img style="height:40px;" src="data:image/png;base64,'.base64_encode($pokaz['icon_pickup']).'"><p>'.
+                '<p><b>
+                    Rat keys are used to open Rat Chests and certain doors. They are obtained from the third phase of the Resourceful Rat fight. 
+                    They cannot be used as regular keys. Rat Keys are automatically collected by the player if they attempt to leave them behind.
+                </b></p><br><br>';
+                $licz++;
+            }
+        }
+        
+    }
 ?>
