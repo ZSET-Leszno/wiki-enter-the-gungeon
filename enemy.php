@@ -3,15 +3,20 @@
 ?>
     <main>
 
-        <div style="display: flex; flex-direction: column; align-items: center;" class="boss_window">
-
-            <h1><b>Przeciwnicy</b></h1>
-            <span><b>W tej zakładce dowiecie się wszystkiego o przeciwnikach oraz bossach występujących w grz Enter the Gungeon, kliknij w jeden z poniższych przycisków, 
-                żeby zdecydować co chcesz zobaczyć</b></span>
-                <form method="post">
-                    <input type="submit" name="enemy" class="button" value="Przeciwnicy" />
-                    <input type="submit" name="boss" class="button" value="Bossowie" />
-                </form>
+        <div style="display: flex; flex-direction: column; align-items: center;" class="window_start">
+            <div style='display:flex; flex-direction: row; justify-content: center' class='mb-2'>
+                <span style='font-size: 70px;'> 
+                    Przeciwnicy
+                </span>
+            </div>
+            <span><b>
+                W tej zakładce dowiecie się wszystkiego o przeciwnikach oraz bossach występujących w grz Enter the Gungeon, kliknij w jeden z poniższych przycisków, 
+                żeby zdecydować co chcesz zobaczyć
+            </b></span>
+            <form method="post">
+                <input type="submit" name="enemy" class="button" value="Przeciwnicy" />
+                <input type="submit" name="boss" class="button" value="Bossowie" />
+            </form>
         </div>
 
         <?php
@@ -37,11 +42,11 @@
                 $wynik=mysqli_query($conn,$zapytanie);
                 $ile_rekord=mysqli_num_rows($wynik);
                 $licz=1;
-                echo '<div class="boss_window">';
+                echo '<div class="window_start">';
 
                 if($numer_boss==2){
                     echo "<div class='mb-2'>
-                            <span style='font-size: 5vh;'>
+                            <span style='font-size: 25pt;'>
                                 Twierdza Władcy Ołowiu
                             </span>
                             </div>";
@@ -49,7 +54,7 @@
                 }
                 if($numer_boss==3){
                     echo "<div class='mb-2'>
-                    <span style='font-size: 5vh;'>
+                    <span style='font-size: 25pt;'>
                         Właściwy Loch Giwer
                     </span>
                     </div>";
@@ -57,21 +62,21 @@
                 }
                 if($numer_boss==4){
                     echo "<div class='mb-2'>
-                    <span style='font-size: 5vh;'>
+                    <span style='font-size: 25pt;'>
                     Kopalnia Czarnego Prochu
                     </span>
                     </div>";
                 }
                 if($numer_boss==5){
                     echo "<div class='mb-2'>
-                    <span style='font-size: 5vh;'>
+                    <span style='font-size: 25pt;'>
                     Uroczysko
                     </span>
                     </div>";
                 }
                 if($numer_boss==6){
                     echo "<div class='mb-2'>
-                    <span style='font-size: 5vh;'>
+                    <span style='font-size: 25pt;'>
                     Kuźnia
                     </span>
                     </div>";
@@ -80,17 +85,17 @@
                 echo "<div style='padding: 0px; margin:0;' class='row mb-3 mt-2'>";
                 while($licz<=$ile_rekord){
                     $pokaz=mysqli_fetch_array($wynik);
-                    echo "
-                    <div class='col-sm-4 text-center'>
-                        <button style='padding: 0; margin:0; height:30vh' type='button' class='btn m-1 btn-dark w-75' data-bs-toggle='modal' data-bs-target='#".$licz.$pokaz['id']."'>
-                        <div id='cale_te_boss'>
-                        ".'<img style="height: 18vh; width: fit;" src="data:image/png;base64,'.base64_encode($pokaz['icon_boss']).'">'."
-                            <h2>".$pokaz['name_boss']."</h2>
-                        <div>
-                        </button>
-            
-            
-                        <div class='modal fade mt-5 text-dark-emphasis' data-bs-theme='dark' id='".$licz.$pokaz['id']."' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+
+                        echo "
+                        <div class='col-sm-4 text-center'>
+                            <button style='padding: 0; margin:0; height:100%;' type='button' class='btn m-1 btn-dark w-75' data-bs-toggle='modal' data-bs-target='#".$licz.$pokaz['id']."'>
+                            <div id='cale_te_boss'>
+                            ".'<img style="max-height:80%; max-width: 80%;" src="data:image/png;base64,'.base64_encode($pokaz['icon_boss']).'">'."
+                                <h2>".$pokaz['name_boss']."</h2>
+                            <div>
+                            </button>
+                            
+                            <div class='modal fade mt-5 text-dark-emphasis' data-bs-theme='dark' id='".$licz.$pokaz['id']."' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
                             <div class='modal-dialog'>
                                 <div class='modal-content'>
                                 
@@ -166,8 +171,8 @@
                 $numer_boss++;
             }
             include "zapytania.php";
-            echo '<div class="boss_window">';
-            echo "<div class='mb-2'><span style='font-size: 5vh;'>Sekretni Bossowie</span></div>";
+            echo '<div class="window_start">';
+            echo "<div class='mb-2'><span style='font-size: 25pt;'>Sekretni Bossowie</span></div>";
             echo "<div style='padding: 0px; margin:0;' class='row mb-3 mt-2'>";
             tabela_boss_drzwi();
             echo "</div></div>";
@@ -177,9 +182,9 @@
         ?>
 
     </main>
-    <br><br><br>
-    <footer style="position: fixed;">
-        <a>Strona by Brajan Hylla & Joanna Muzyka</a>
-    </footer>
+    <br><br><br><br><br>
+    <?php
+        include 'footer.php';
+    ?>
 </body>
 </html>

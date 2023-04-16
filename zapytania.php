@@ -20,8 +20,8 @@ function tabela_bron(){
         }
         elseif($pokaz['exist_bron']=='1'){
             echo "
-            <div id='".$pokaz['name_bron']."' class='col-sm-3 text-center'>
-                <button style='padding: 0; margin:0; height:14vh' type='button' class='btn m-1 btn-dark w-75' data-bs-toggle='modal' data-bs-target='#".$licz."'>
+            <div style='margin-top: 1%; margin-bottom: 1%;' id='".$pokaz['name_bron']."' class='col-sm-3 text-center'>
+                <button style='padding: 0; margin:0; height:100%; width:100%' type='button' class='btn m-1 btn-dark w-75' data-bs-toggle='modal' data-bs-target='#".$licz."'>
                 <div id='cale_te_bron'>
                 ".'<img src="data:image/png;base64,'.base64_encode($pokaz['icon_bron']).'">'."
                     <h2>".$pokaz['name_bron']."</h2>
@@ -124,8 +124,8 @@ echo '<br>';
             $pokaz=mysqli_fetch_array($wynik);
 
             echo "
-                <div class='col-sm-3 text-center'>
-                    <button style='padding: 0; margin:0; height:20vh' type='button' class='btn m-1 btn-dark w-75' data-bs-toggle='modal' data-bs-target='#".$licz."'>".
+                <div style='margin-top: 1%; margin-bottom: 1%;' class='col-sm-3 text-center'>
+                    <button style='padding: 0; margin:0; height:100%' type='button' class='btn m-1 btn-dark w-75' data-bs-toggle='modal' data-bs-target='#".$licz."'>".
                         "<div id='cale_te_postacie'>"
                         .'<img style="height:150px;" src="data:image/png;base64,'.base64_encode($pokaz['baner_gungeoneer']).'">'     
                         ."<h2>".$pokaz['name_gungeoneer']."</h2>".
@@ -236,8 +236,8 @@ echo '<br>';
                 }
                 elseif ($pokaz['exist_item']=='1'){
                     echo "
-                    <div style='margin-top:1%;' class='col-sm-3 text-center'>
-                        <button style='padding: 0; margin:0; height:20vh' type='button' class='btn m-1 btn-dark w-75' data-bs-toggle='modal' data-bs-target='#".$licz."'>
+                    <div style='margin-top: 1%; margin-bottom: 1%;' class='col-sm-3 text-center'>
+                        <button style='padding: 0; margin:0; height:100%;' type='button' class='btn m-1 btn-dark w-75' data-bs-toggle='modal' data-bs-target='#".$licz."'>
                             <div id='cale_te_item'>
                                 ".'<img src="data:image/png;base64,'.base64_encode($pokaz['icon_item']).'">'."
                                 <h2>".$pokaz['name_item']."</h2>
@@ -315,8 +315,8 @@ echo '<br>';
         while ($licz<=$ile_rekord){
             $pokaz=mysqli_fetch_array($wynik);
             echo "
-            <div class='col-sm-3 text-center'>
-                <button style='padding: 0; margin:0; height:25vh' type='button' class='btn m-1 btn-dark w-75' data-bs-toggle='modal' data-bs-target='#".$licz."'>
+            <div style='margin-top: 1%; margin-bottom: 1%;' class='col-sm-3 text-center'>
+                <button style='padding: 0; margin:0; height:100%;' type='button' class='btn m-1 btn-dark w-75' data-bs-toggle='modal' data-bs-target='#".$licz."'>
                 <div id='cale_te_enemy'>
                 ".'<img src="data:image/png;base64,'.base64_encode($pokaz['icon_enemy']).'">'."
                     <h2>".$pokaz['name_enemy']."</h2>
@@ -394,8 +394,8 @@ echo '<br>';
         $pokaz=mysqli_fetch_array($wynik);
         
         echo "
-            <div class='col-sm-4 text-center'>
-                <button style='padding: 0; margin:0; height:30vh' type='button' class='btn m-1 btn-dark w-75' data-bs-toggle='modal' data-bs-target='#".$pokaz['id']."'>
+            <div margin-top: 1%; margin-bottom: 1%; class='col-sm-4 text-center'>
+                <button style='padding: 0; margin:0; height: 100%' type='button' class='btn m-1 btn-dark w-75' data-bs-toggle='modal' data-bs-target='#".$pokaz['id']."'>
                 <div id='cale_te_boss'>
                 ".'<img style="height: 18vh; width: fit;" src="data:image/png;base64,'.base64_encode($pokaz['icon_boss']).'">'."
                     <h2>".$pokaz['name_boss']."</h2>
@@ -514,16 +514,14 @@ echo '<br>';
 
         while ($licz<=$ile_rekord){
             $pokaz=mysqli_fetch_array($wynik);
-            if($licz==5){
+            echo "<a style='font-size: 60%;' class='link_' href='#".$pokaz['name_floor']."'>".$pokaz['name_floor'].'</a>';
+            if($licz<$ile_rekord){
+                echo '<hr style="width: 80%; border-top: 4px solid #eed3fe; opacity: 1;">';
                 $licz++;
             }
             else{
-                $licz=$licz+0.5;
+                $licz++;
             }
-            
-            echo "<a style='font-size: 60%;' class='link_' href='#".$pokaz['name_floor']."'>".$pokaz['name_floor'].'</a>';
-            echo '<hr style="width: 80%; border-top: 4px solid #eed3fe; opacity: 1;">';
-            $licz=$licz+0.5;
             }
     }    
 ?>
@@ -572,7 +570,7 @@ echo '<br>';
         }
 ?>
 <?php
-    function tabela_Klucze(){
+    function tabela_klucze(){
         include "config.php";
         $conn=mysqli_connect($lokacja_baza, $user_baza, $pass_baza, $name_baza);
         $zapytanie='SELECT * FROM pickupy where name_pickup like "%klucz%";';

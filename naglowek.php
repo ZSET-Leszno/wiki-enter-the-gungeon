@@ -33,8 +33,8 @@
                 <a class='link_' href='bronie.php'>BRONIE</a>
                 <a class='link_' href='enemy.php'>PRZECIWNICY</a>
                 <a class='link_' href='floors.php'>PIĘTRA</a>
-                <a class='link_' href='itemy.php'>ITEMY</a>
-                <a class='link_' href='pickupy.php'>PICKUPY</a>
+                <a class='link_' href='itemy.php'>PRZEDMIOTY</a>
+                <a class='link_' href='pickupy.php'>PICKUP-Y</a>
     
                 <!--<a class='link_' href='log.php'>LOG IN</a>-->
             </nav>

@@ -2,14 +2,24 @@
   include 'naglowek.php';
 ?>
     <main>
-    
+      <div style="display: flex; flex-direction: column; align-items: center;" class="window_start">
+      <div style='display:flex; flex-direction: row; justify-content: center' class='mb-2'>
+                <span style='font-size: 70px;'> 
+                    Postacie
+                </span>
+            </div>
+        <span><b>
+          Postacie grywalne, zwane także Giwerownikami (ang. Gungeoneer), to śmiałkowie, 
+          którzy ośmielili się wkroczyć do Lochu Giwer, by dotrzeć do najgłębszej z komnat Gungeonu, w której spoczywa legendarna "Broń zdolna zabić przeszłość".
+        </b></span>
+      </div>
         <?php
             include "zapytania.php";
             tabela_postacie();
           ?>
     </main>
-    <footer>
-        <a>Strona by Brajan Hylla & Joanna Muzyka</a>
-    </footer>
+    <?php
+        include 'footer.php';
+    ?>
 </body>
 </html>

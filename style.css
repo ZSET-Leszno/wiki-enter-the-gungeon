@@ -204,13 +204,14 @@ main{
 footer{
     clear: both;
     padding: 1%;
-    height: 5%;
+    height: 7%;
     background-color: #0f0028;
     color: #eed3fe;
     position: relative;
     bottom: 0;
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -266,7 +267,7 @@ td{
     background-color: #0f0028;
     border: 5px solid #2e1158!important;
     color: #dcbdee;
-    height:20vh;
+    height:100%;
     display: flex;
     align-items:center;
     justify-content: center;
@@ -274,13 +275,13 @@ td{
 }
 #cale_te_postacie:hover{
     background-color: rgb(127, 62, 202);
-    transition: 1s;
+    transition: 0.5s;
 }
 #cale_te_bron{
     background-color: #0f0028;
     border: 5px solid #2e1158!important;
     color: #dcbdee;
-    height:14vh;
+    height:100%;
     vertical-align: middle;
     display: flex;
     align-items:center;
@@ -289,13 +290,13 @@ td{
 }
 #cale_te_bron:hover{
     background-color: rgb(127, 62, 202);
-    transition: 1s;
+    transition: 0.5s;
 }
 #cale_te_item{
     background-color: #0f0028;
     border: 5px solid #2e1158!important;
     color: #dcbdee;
-    height:20vh;
+    height:100%;
     vertical-align: middle;
     display: flex;
     align-items:center;
@@ -304,28 +305,29 @@ td{
 }
 #cale_te_item:hover{
     background-color: rgb(127, 62, 202);
-    transition: 1s;
+    transition: 0.5s;
 }
 #cale_te_enemy{
     background-color: #0f0028;
     border: 5px solid #2e1158!important;
     color: #dcbdee;
-    height:25vh;
+    height:100%;
     vertical-align: middle;
     display: flex;
     align-items:center;
     justify-content: center;
     flex-direction: column;
+
 }
 #cale_te_enemy:hover{
     background-color: rgb(127, 62, 202);
-    transition: 1s;
+    transition: 0.5s;
 }
 #cale_te_boss{
     background-color: #0f0028;
     border: 5px solid #2e1158!important;
     color: #dcbdee;
-    height:30vh;
+    height:100%;
     vertical-align: middle;
     display: flex;
     align-items:center;
@@ -334,10 +336,10 @@ td{
 }
 #cale_te_boss:hover{
     background-color: rgb(127, 62, 202);
-    transition: 1s;
+    transition: 0.5s;
 }
 
-.boss_window{
+.window_start{
     background-color: rgb(238, 211, 254, 0.6);
 
     width: 85%;
@@ -377,10 +379,13 @@ td{
     flex-direction: column; 
     align-items: center;
     padding: 2%;
-    width: 30%;
+    width: 40%;
+    height: 500px;
 }
 
-
+#nazwa{
+    border: 5px solid #2e1158!important;
+}
 
 
 /*

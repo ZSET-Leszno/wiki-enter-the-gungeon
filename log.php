@@ -6,8 +6,8 @@
         
         ?>
     </main>
-    <footer>
-        <a>Strona by Brajan Hylla & Joanna Muzyka</a>
-    </footer>
+    <?php
+        include 'footer.php';
+    ?>
 </body>
 </html>

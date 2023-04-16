@@ -2,7 +2,7 @@
   include 'naglowek.php';
 ?>
     <main>
-        <div class="boss_window">
+        <div class="window_start">
 
         <div style='display:flex; flex-direction: row; justify-content: center' class='mb-2'>
             <span style='font-size: 70px;'> 

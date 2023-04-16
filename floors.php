@@ -2,7 +2,7 @@
   include 'naglowek.php';
 ?>
     <main>
-    <div class="boss_window">
+    <div class="window_start">
         <div style='display:flex; flex-direction: row; justify-content: center' class='mb-2'>
             <span style='font-size: 70px;'> 
                 Piętra
@@ -14,7 +14,7 @@
                     include 'zapytania.php';
                     echo "<div class='mb-2'>
                         <a style='font-size: 45px;'> 
-                            Komory
+                            Główne piętra
                         </a>
                     </div>";
                     tabela_pietro();
@@ -30,14 +30,16 @@
                     tabela_pietro_secret();
                 ?>
             </div>
-            <p style="width: 70%; padding-left: 5%;"><b>
+        </div>
+
+        <p style="width: 70%; padding-left: 5%;"><b>
             The Gungeon is a constantly evolving bullet hell fortress on the planet Gunymede that elegantly blends meticulously hand-designed rooms within a procedurally-generated labyrinth bent on destroying all that enter its walls. But beware – the Gungeon responds to even the most modest victory against its sentries and traps by raising the stakes and the challenges found within!
         </b></p>
-        </div>
+
     </div>
     </main>
-    <!--<footer>
-        <a>Strona by Brajan Hylla & Joanna Muzyka</a>
-    </footer>-->
+    <?php
+        include 'footer.php';
+    ?>
 </body>
 </html>
