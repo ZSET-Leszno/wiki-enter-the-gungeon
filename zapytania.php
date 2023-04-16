@@ -6,11 +6,11 @@ function tabela_bron(){
     $wynik=mysqli_query($conn,$zapytanie);
     $ile_rekord=mysqli_num_rows($wynik);
     $licz=1;
-    
-    if(isset($_POST["nazwa"])){
-        $nazwa=$_POST["nazwa"];
-        echo "<p><a href='#".$nazwa."'>Pokaż wyszukaną broń</a></p>";
-    }
+
+    //if(isset($_POST["nazwa"])){
+        //$nazwa=$_POST["nazwa"];
+        //echo "<p><a href='#".$nazwa."'>Pokaż wyszukaną broń</a></p>";
+    //}
 
     echo "<div style='padding: 0px; margin:0;' class='row mb-3 mt-2'>";
     while($licz<=$ile_rekord){
@@ -491,8 +491,14 @@ echo '<br>';
 
         while ($licz<=$ile_rekord){
             $pokaz=mysqli_fetch_array($wynik);
-            echo $licz."  -  ".$pokaz['name_floor'].'<br>';
-            $licz++;
+            echo "<a style='font-size: 60%;' class='link_' href='#".$pokaz['name_floor']."'>".$pokaz['name_floor'].'</a>';
+            if($licz<$ile_rekord){
+                echo '<hr style="width: 80%; border-top: 4px solid #eed3fe; opacity: 1;">';
+                $licz++;
+            }
+            else{
+                $licz++;
+            }
             }
     }    
 ?>
@@ -515,7 +521,8 @@ echo '<br>';
                 $licz=$licz+0.5;
             }
             
-            echo $licz."  -  ".$pokaz['name_floor'].'<br>';
+            echo "<a style='font-size: 60%;' class='link_' href='#".$pokaz['name_floor']."'>".$pokaz['name_floor'].'</a>';
+            echo '<hr style="width: 80%; border-top: 4px solid #eed3fe; opacity: 1;">';
             $licz=$licz+0.5;
             }
     }    
@@ -561,7 +568,7 @@ echo '<br>';
         $zapytanie='SELECT * FROM pickupy where name_pickup like "Kredyty%";';
         $wynik=mysqli_query($conn,$zapytanie);
         $pokaz=mysqli_fetch_array($wynik);
-        echo '<p><img style="height:40px;" src="data:image/png;base64,'.base64_encode($pokaz['icon_pickup']).'">'.' - '.$pokaz['name_pickup'].'<p>';
+        echo '<p><img style="height:40px;" src="data:image/png;base64,'.base64_encode($pokaz['icon_pickup']).'"><p>';
         }
 ?>
 <?php
@@ -576,7 +583,7 @@ echo '<br>';
         while ($licz<=$ile_rekord){
             $pokaz=mysqli_fetch_array($wynik);
             if($pokaz['name_pickup']=='Klucz'){
-                echo '<p><img style="height:40px;" src="data:image/png;base64,'.base64_encode($pokaz['icon_pickup']).'"><p>'.
+                echo '<p><img style="height:40px;" src="data:image/png;base64,'.base64_encode($pokaz['icon_pickup']).'"></p>'.
                     '<p><b>
                         Keys are used to open locked chests and doors, as well as the trapdoor to the Oubliette and the trapdoor to the passageway to the Resourceful Rats Lair.
                         Every Shop apart from the Forges shop will always have at least one key for sale.
@@ -590,7 +597,7 @@ echo '<br>';
                     $pokaz['name_pickup']
                 ."</span>
             </div>";
-            echo '<p><img style="height:40px;" src="data:image/png;base64,'.base64_encode($pokaz['icon_pickup']).'"><p>'.
+            echo '<p><img style="height:40px;" src="data:image/png;base64,'.base64_encode($pokaz['icon_pickup']).'"></p>'.
                 '<p><b>
                     Cell keys are used to open cells to free NPCs. On any floor with a cell, a cell key will drop from a random enemy on the floor (including the boss). 
                     They cannot be used as regular keys. Cell keys are automatically collected by the player if they attempt to leave them behind.
@@ -603,14 +610,112 @@ echo '<br>';
                     $pokaz['name_pickup']
                 ."</span>
             </div>";
-                echo '<p><img style="height:40px;" src="data:image/png;base64,'.base64_encode($pokaz['icon_pickup']).'"><p>'.
+                echo '<p><img style="height:40px;" src="data:image/png;base64,'.base64_encode($pokaz['icon_pickup']).'"></p>'.
                 '<p><b>
                     Rat keys are used to open Rat Chests and certain doors. They are obtained from the third phase of the Resourceful Rat fight. 
                     They cannot be used as regular keys. Rat Keys are automatically collected by the player if they attempt to leave them behind.
-                </b></p><br><br>';
+                </b></p>';
                 $licz++;
             }
         }
         
+    }
+?>
+
+<?php
+function tabela_serca(){
+        include "config.php";
+        $conn=mysqli_connect($lokacja_baza, $user_baza, $pass_baza, $name_baza);
+        $zapytanie='SELECT * FROM pickupy where name_pickup like "%serc%";';
+        $wynik=mysqli_query($conn,$zapytanie);
+        $ile_rekord=mysqli_num_rows($wynik);
+        $licz=1;
+        echo "<p>";
+        while ($licz<=$ile_rekord){
+            $pokaz=mysqli_fetch_array($wynik);
+            echo '<img style="height:40px;" src="data:image/png;base64,'.base64_encode($pokaz['icon_pickup']).'">';
+            $licz++;
+        }
+        
+            echo '</p><p><b>
+                        Keys are used to open locked chests and doors, as well as the trapdoor to the Oubliette and the trapdoor to the passageway to the Resourceful Rats Lair.
+                        Every Shop apart from the Forges shop will always have at least one key for sale.
+                        Flynt uses keys instead of coins in exchange for his items.
+                    </b></p>';
+ 
+            
+        }
+?>
+
+<?php
+function tabela_pancerz(){
+        include "config.php";
+        $conn=mysqli_connect($lokacja_baza, $user_baza, $pass_baza, $name_baza);
+        $zapytanie='SELECT * FROM pickupy where name_pickup like "pancerz";';
+        $wynik=mysqli_query($conn,$zapytanie);
+        $licz=1;
+        echo "<p>";
+        $pokaz=mysqli_fetch_array($wynik);
+        echo '<img style="height:40px;" src="data:image/png;base64,'.base64_encode($pokaz['icon_pickup']).'">';
+        echo '</p><p><b>
+            Keys are used to open locked chests and doors, as well as the trapdoor to the Oubliette and the trapdoor to the passageway to the Resourceful Rats Lair.
+            Every Shop apart from the Forges shop will always have at least one key for sale.
+            Flynt uses keys instead of coins in exchange for his items.
+        </b></p>'; 
+    }
+?>
+
+<?php
+    function tabela_slepak(){
+        include "config.php";
+        $conn=mysqli_connect($lokacja_baza, $user_baza, $pass_baza, $name_baza);
+        $zapytanie='SELECT * FROM pickupy where name_pickup like "ślepak";';
+        $wynik=mysqli_query($conn,$zapytanie);
+        $pokaz=mysqli_fetch_array($wynik);
+        echo '<p><img style="height:40px;" src="data:image/png;base64,'.base64_encode($pokaz['icon_pickup']).'"></p>
+        <p><b>
+            Keys are used to open locked chests and doors, as well as the trapdoor to the Oubliette and the trapdoor to the passageway to the Resourceful Rats Lair.
+            Every Shop apart from the Forges shop will always have at least one key for sale.
+            Flynt uses keys instead of coins in exchange for his items.
+        </b></p>';
+        }
+?>
+
+
+<?php
+    function tabela_amunicja(){
+        include "config.php";
+        $conn=mysqli_connect($lokacja_baza, $user_baza, $pass_baza, $name_baza);
+        $zapytanie='SELECT * FROM pickupy where name_pickup like "Pudełko z %";';
+        $wynik=mysqli_query($conn,$zapytanie);
+        $ile_rekord=mysqli_num_rows($wynik);
+        $licz=1;
+
+        while ($licz<=$ile_rekord){
+            $pokaz=mysqli_fetch_array($wynik);
+            if($pokaz['name_pickup']=='Pudełko z amunicją'){
+                echo "<div class='mb-2'>
+                <span style='font-size: 45px;'>Pudełko z amunicją</span>
+            </div>";
+                echo '<p><img style="height:40px;" src="data:image/png;base64,'.base64_encode($pokaz['icon_pickup']).'"></p>
+                    <p><b>
+                        Keys are used to open locked chests and doors, as well as the trapdoor to the Oubliette and the trapdoor to the passageway to the Resourceful Rats Lair.
+                        Every Shop apart from the Forges shop will always have at least one key for sale.
+                        Flynt uses keys instead of coins in exchange for his items.
+                    </b></p><br><br>';
+                $licz++;
+            }
+            elseif($pokaz['name_pickup']=='Pudełko z amunicją_2'){
+                echo "<div class='mb-2'>
+                <span style='font-size: 45px;'>Pudełko z wymieszaną amunicją</span>
+            </div>";
+            echo '<p><img style="height:40px;" src="data:image/png;base64,'.base64_encode($pokaz['icon_pickup']).'"></p>'.
+                '<p><b>
+                    Cell keys are used to open cells to free NPCs. On any floor with a cell, a cell key will drop from a random enemy on the floor (including the boss). 
+                    They cannot be used as regular keys. Cell keys are automatically collected by the player if they attempt to leave them behind.
+                </b></p><br><br>';
+                $licz++;
+            }
+        }
     }
 ?>

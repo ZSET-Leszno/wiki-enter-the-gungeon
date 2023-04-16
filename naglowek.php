@@ -36,7 +36,7 @@
                 <a class='link_' href='itemy.php'>ITEMY</a>
                 <a class='link_' href='pickupy.php'>PICKUPY</a>
     
-                <a class='link_' href='log.php'>LOG IN</a>
+                <!--<a class='link_' href='log.php'>LOG IN</a>-->
             </nav>
         </header>;"
 

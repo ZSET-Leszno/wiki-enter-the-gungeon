@@ -29,6 +29,7 @@ header{
     margin: 0;
 }
 .link_{
+    float: inline-end;
     text-decoration: none;
     color: #eed3fe;
     font-size: 110%;
@@ -36,6 +37,11 @@ header{
     padding-right: 1%;
     font-weight: bold;
 }
+.link_:hover{
+    background-color: rgb(127, 62, 202);
+    transition: 1s;
+}
+
 #title{
     display: flex;
     flex-direction: column;
@@ -266,6 +272,10 @@ td{
     justify-content: center;
     flex-direction: column;
 }
+#cale_te_postacie:hover{
+    background-color: rgb(127, 62, 202);
+    transition: 1s;
+}
 #cale_te_bron{
     background-color: #0f0028;
     border: 5px solid #2e1158!important;
@@ -276,6 +286,10 @@ td{
     align-items:center;
     justify-content: center;
     flex-direction: column;
+}
+#cale_te_bron:hover{
+    background-color: rgb(127, 62, 202);
+    transition: 1s;
 }
 #cale_te_item{
     background-color: #0f0028;
@@ -288,6 +302,10 @@ td{
     justify-content: center;
     flex-direction: column;
 }
+#cale_te_item:hover{
+    background-color: rgb(127, 62, 202);
+    transition: 1s;
+}
 #cale_te_enemy{
     background-color: #0f0028;
     border: 5px solid #2e1158!important;
@@ -298,6 +316,10 @@ td{
     align-items:center;
     justify-content: center;
     flex-direction: column;
+}
+#cale_te_enemy:hover{
+    background-color: rgb(127, 62, 202);
+    transition: 1s;
 }
 #cale_te_boss{
     background-color: #0f0028;
@@ -310,6 +332,10 @@ td{
     justify-content: center;
     flex-direction: column;
 }
+#cale_te_boss:hover{
+    background-color: rgb(127, 62, 202);
+    transition: 1s;
+}
 
 .boss_window{
     background-color: rgb(238, 211, 254, 0.6);
@@ -319,7 +345,8 @@ td{
     margin: 0.5%;
     margin-left: 8%;
     padding: 0.5%;
-
+    padding-left: 3%;
+    padding-right: 3%;
     border-color: #4a154d;
     border-style: double;
     border-radius: 10px;
@@ -335,6 +362,27 @@ td{
     background-color: #0f0028;
     border: 5px solid #2e1158!important;
 }
+.button:hover{
+    background-color: rgb(127, 62, 202);
+    transition: 1s;
+}
+
+.spis{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: #0f0028;
+    border: 5px solid #eed3fe!important;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+    padding: 2%;
+    width: 30%;
+}
+
+
+
+
 /*
 KOLORY:
 #810484

@@ -4,5 +4,4 @@
     $pass_baza="";
     $name_baza="etgwiki";
 
-
 ?>

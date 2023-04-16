@@ -1,5 +1,8 @@
 function search(){
     var x =document.getElementById("nazwa").value;
-    x="http://etgwiki.w.zset.leszno.pl/bronie.php#"+x;
-    window.location.href=x;
+    y="http://localhost/moje%20pliki/projekt/wiki-enter-the-gungeon/bronie.php#"+x;
+    window.location.href=y;
+    document.getElementById(x).style.border = "5px solid #eed3fe";
+    document.getElementById(x).style.borderRadius = "20px";
 }
+ 
