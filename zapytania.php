@@ -236,7 +236,7 @@ echo '<br>';
                 }
                 elseif ($pokaz['exist_item']=='1'){
                     echo "
-                    <div style='margin-top: 1%; margin-bottom: 1%;' class='col-sm-3 text-center'>
+                    <div style='margin-top: 1%; margin-bottom: 1%;' id='".$pokaz['name_item']."' class='col-sm-3 text-center'>
                         <button style='padding: 0; margin:0; height:100%;' type='button' class='btn m-1 btn-dark w-75' data-bs-toggle='modal' data-bs-target='#".$licz."'>
                             <div id='cale_te_item'>
                                 ".'<img src="data:image/png;base64,'.base64_encode($pokaz['icon_item']).'">'."

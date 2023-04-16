@@ -12,6 +12,12 @@
                 W grze spotkać możemy wiele przedmiotów, które w wyjątkowy sposób zmieniają rozgrywkę, często zmieniając statystyki, 
                 nadając wyjątkowe efekty, wystrzeliwanym przez naszą postać, pociskom i wiele, wiele więcej.
             </b></span>
+            <?php
+                echo '<div style="display: flex; align-items: center">
+                        <input id="nazwa" type="text">
+                        <button class="button" onclick="search_2()">Szukaj</button>
+                    </div>';
+            ?> 
         </div>
         <?php
             include 'zapytania.php';

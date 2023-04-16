@@ -85,10 +85,9 @@ main{
 #karuzela{
     background-color: rgb(238, 211, 254, 0.6);
     float: left;
-    width: 60%;
-    height: 60%;
+    width: 70%;
+    height: 90%;
     margin: 0.5%;
-    margin-left: 8%;
     padding: 0.5%;
 
     border: 2%;
@@ -103,10 +102,6 @@ main{
 
 }
 
-#karuzela_obraz{
-    width: 80%;
-
-}
 
 #kom_sekcja{
     background-color: rgb(238, 211, 254, 0.6);
@@ -353,7 +348,8 @@ td{
     border-style: double;
     border-radius: 10px;
 
-
+    text-align: justify; 
+    text-justify: inter-word;
     
 }
 
@@ -380,13 +376,12 @@ td{
     align-items: center;
     padding: 2%;
     width: 40%;
-    height: 500px;
+    height: 100%;
 }
 
 #nazwa{
     border: 5px solid #2e1158!important;
 }
-
 
 /*
 KOLORY:

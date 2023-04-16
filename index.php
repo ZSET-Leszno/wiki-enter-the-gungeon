@@ -1,12 +1,12 @@
 <?php
   include 'naglowek.php';
 ?>
-    <main>
+    <main style="display: flex; justify-content: center;">
         <div id="karuzela">
             <h1><b>Enter the Gungeon Wiki</b></h1>
             <p><b>Witaj na naszej wiki!</b></p>
             <span><b>Znajdziesz tu wiele informacji na temat gry Enter the Gungeon</b></span>
-            <div id="karuzela_obraz">
+            <div>
                 <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                     <div class="carousel-item active">
@@ -55,7 +55,7 @@
             </div>
         </div>
 
-        <div id="kom_sekcja">
+        <!--<div id="kom_sekcja">
             <span><b>komentarze</b></span>
         </div>
         <div id="content">
@@ -104,7 +104,7 @@
         </div>
         <div id="dodatkowe">
             <a><b>dodatkowe</b></a>
-        </div>
+        </div>-->
     </main>
     <?php
         include 'footer.php';
