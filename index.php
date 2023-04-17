@@ -105,7 +105,10 @@
         <div id="dodatkowe">
             <a><b>dodatkowe</b></a>
         </div>-->
+        
+
     </main>
+    <div style='height: 450px;'></div>
     <?php
         include 'footer.php';
     ?>

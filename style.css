@@ -32,7 +32,7 @@ header{
     float: inline-end;
     text-decoration: none;
     color: #eed3fe;
-    font-size: 100%;
+    font-size:2vh;
     padding: 0.5%;
     font-weight: bold;
 }
@@ -40,6 +40,11 @@ header{
     background-color: rgb(127, 62, 202);
     transition: 1s;
 }
+@media screen and (max-width: 750px) {
+    .link_{
+        font-size:90%;
+    }
+  }
 
 #title{
     display: flex;
@@ -298,7 +303,6 @@ td{
     background-color: rgb(127, 62, 202);
     transition: 1s;
 }
-
 .spis{
     color: white;
     text-decoration: none;
@@ -362,8 +366,8 @@ td{
 .vl {
     border-left: 2px solid #eed3fe!important;
     height: 4vh;
-    margin-left: 4.5px;
-    margin-right: 4.5px;
+    margin-left: 3.5px;
+    margin-right: 3.5px;
   }
 
   .temat_2{
