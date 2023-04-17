@@ -444,11 +444,10 @@ echo '<br>';
                             <div class='modal-body'>
                                 <br>
                                 <div class='mb-2'>Lokacja</div>
-                                <span style='font-size: 70%;'>
-                                Właściwy Loch Giwer<br>
-                                Kopalnia Czarnego Prochu<br>
-                                Uroczysko
-                                </span>
+                                
+                                <a class=link_ style='font-size: 70%;' href='http://localhost/moje%20pliki/projekt/wiki-enter-the-gungeon/floors.php#Właściwy%20Loch%20Giwer'> Właściwy Loch Giwer</a>
+                                <a class=link_ style='font-size: 70%;' href='http://localhost/moje%20pliki/projekt/wiki-enter-the-gungeon/floors.php#Kopalnia%20Czarnego%20Prochu'> Kopalnia Czarnego Prochu</a>
+                                <a class=link_ style='font-size: 70%;' href='http://localhost/moje%20pliki/projekt/wiki-enter-the-gungeon/floors.php#Uroczysko'> Uroczysko</a>
                                 <br>
                                 <div class='mb-2'>Ammunomicon</div>
                                 <span style='font-size: 70%;'>

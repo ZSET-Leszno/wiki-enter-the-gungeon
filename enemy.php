@@ -143,11 +143,50 @@
             
                                     <div class='modal-body'>
                                         <br>
-                                        <div class='mb-2'>Lokacja</div>
-                                        <span style='font-size: 70%;'>
-                                        ".$pokaz['name_floor']."
-                                        </span>
-                                        <br>
+                                        <div class='mb-2'>Lokacja</div>";
+                                        if($pokaz['name_floor']=="Twierdza Władcy Ołowiu"){
+                                            echo "<a class=link_ style='font-size: 70%;' href='http://localhost/moje%20pliki/projekt/wiki-enter-the-gungeon/floors.php#Twierdza%20Władcy%20Ołowiu'>
+                                            Właściwy Loch Giwer</a>";
+                                        }
+                                        if($pokaz['name_floor']=="Właściwy Loch Giwer"){
+                                            echo "<a class=link_ style='font-size: 70%;' href='http://localhost/moje%20pliki/projekt/wiki-enter-the-gungeon/floors.php#Właściwy%20Loch%20Giwer'>
+                                            Właściwy Loch Giwer</a>";
+                                        }
+                                        if($pokaz['name_floor']=="Kopalnia Czarnego Prochu"){
+                                            echo "<a class=link_ style='font-size: 70%;' href='http://localhost/moje%20pliki/projekt/wiki-enter-the-gungeon/floors.php#Kopalnia%20Czarnego%20Prochu'>
+                                            Właściwy Loch Giwer</a>";
+                                        }
+                                        if($pokaz['name_floor']=="Uroczysko"){
+                                            echo "<a class=link_ style='font-size: 70%;' href='http://localhost/moje%20pliki/projekt/wiki-enter-the-gungeon/floors.php#Uroczysko'>
+                                            Właściwy Loch Giwer</a>";
+                                        }
+                                        if($pokaz['name_floor']=="Kuźnia"){
+                                            echo "<a class=link_ style='font-size: 70%;' href='http://localhost/moje%20pliki/projekt/wiki-enter-the-gungeon/floors.php#Kuźnia'>
+                                            Właściwy Loch Giwer</a>";
+                                        }
+
+                                        if($pokaz['name_floor']=="Ciemnica"){
+                                            echo "<a class=link_ style='font-size: 70%;' href='http://localhost/moje%20pliki/projekt/wiki-enter-the-gungeon/floors.php#Ciemnica'>
+                                            Właściwy Loch Giwer</a>";
+                                        }
+                                        if($pokaz['name_floor']=="Opactwo Prawdziwej Giwery"){
+                                            echo "<a class=link_ style='font-size: 70%;' href='http://localhost/moje%20pliki/projekt/wiki-enter-the-gungeon/floors.php#Opactwo%20Prawdziwej%20Giwery'>
+                                            Właściwy Loch Giwer</a>";
+                                        }
+                                        if($pokaz['name_floor']=="Leże Przedsiębiorczego Szczura"){
+                                            echo "<a class=link_ style='font-size: 70%;' href='http://localhost/moje%20pliki/projekt/wiki-enter-the-gungeon/floors.php#Leże%20Przedsiębiorczego%20Szczura'>
+                                            Właściwy Loch Giwer</a>";
+                                        }
+                                        if($pokaz['name_floor']=="Departament Losowości"){
+                                            echo "<a class=link_ style='font-size: 70%;' href='http://localhost/moje%20pliki/projekt/wiki-enter-the-gungeon/floors.php#Departament%20Losowości'>
+                                            Właściwy Loch Giwer</a>";
+                                        }
+                                        if($pokaz['name_floor']=="Piekło Pocisków"){
+                                            echo "<a class=link_ style='font-size: 70%;' href='http://localhost/moje%20pliki/projekt/wiki-enter-the-gungeon/floors.php#Piekło%20Pocisków'>
+                                            Właściwy Loch Giwer</a>";
+                                        }
+
+                                        echo "<br>
                                         <div class='mb-2'>Ammunomicon</div>
                                         <span style='font-size: 70%;'>
                                         ".$pokaz['opis']."
