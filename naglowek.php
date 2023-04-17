@@ -7,7 +7,6 @@
         <meta http-equiv='X-UA-Compatible' content='IE=edge'>
         <link rel='shortcut icon' href='img/icon.jpg'>
         <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-        <link rel='stylesheet' href='smartphone.css' media='screen and (maxwidth:1024px)''>
         <link rel='stylesheet' href='style.css'>
         <script src='search.js'></script>
         <link rel='preconnect' href='https://fonts.googleapis.com'>
@@ -28,13 +27,19 @@
             </div>
             <nav>
                 <a class='link_' href='index.php'>START</a>
-    
+                <div class='vl'></div>
                 <a class='link_' href='postacie.php'>POSTACIE</a>
+                <div class='vl'></div>
                 <a class='link_' href='bronie.php'>BRONIE</a>
+                <div class='vl'></div>
                 <a class='link_' href='enemy.php'>PRZECIWNICY</a>
+                <div class='vl'></div>
                 <a class='link_' href='floors.php'>PIĘTRA</a>
+                <div class='vl'></div>
                 <a class='link_' href='itemy.php'>PRZEDMIOTY</a>
+                <div class='vl'></div>
                 <a class='link_' href='pickupy.php'>PICKUP-Y</a>
+
     
                 <!--<a class='link_' href='log.php'>LOG IN</a>-->
             </nav>

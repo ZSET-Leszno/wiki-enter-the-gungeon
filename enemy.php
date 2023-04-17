@@ -5,11 +5,11 @@
 
         <div style="display: flex; flex-direction: column; align-items: center;" class="window_start">
             <div style='display:flex; flex-direction: row; justify-content: center' class='mb-2'>
-                <span style='font-size: 70px;'> 
+                <span class="temat"> 
                     Przeciwnicy
                 </span>
             </div>
-            <span><b>
+            <span class="text_content"><b>
                 W tej zakładce dowiecie się wszystkiego o przeciwnikach oraz bossach występujących w grz Enter the Gungeon, kliknij w jeden z poniższych przycisków, 
                 żeby zdecydować co chcesz zobaczyć
             </b></span>
@@ -26,11 +26,19 @@
         else if(array_key_exists('boss', $_POST)) {
             boss();
         }
-
+        else{
+            filler();
+        }
+        
+        function filler(){
+            echo "</main>";
+            echo "<div style='height: 300px;'></div>";
+        }
+        
         function enemy(){
             include 'zapytania.php';
             tabela_enemy();
-
+            echo "</main>";
         }
 
         function boss(){
@@ -91,7 +99,7 @@
                             <button style='padding: 0; margin:0; height:100%;' type='button' class='btn m-1 btn-dark w-75' data-bs-toggle='modal' data-bs-target='#".$licz.$pokaz['id']."'>
                             <div id='cale_te_boss'>
                             ".'<img style="max-height:80%; max-width: 80%;" src="data:image/png;base64,'.base64_encode($pokaz['icon_boss']).'">'."
-                                <h2>".$pokaz['name_boss']."</h2>
+                                <h2 style='width: 100%;'>".$pokaz['name_boss']."</h2>
                             <div>
                             </button>
                             
@@ -177,11 +185,11 @@
             tabela_boss_drzwi();
             echo "</div></div>";
 
-
+        echo "</main>";
         }
         ?>
 
-    </main>
+    
     <br><br><br><br><br>
     <?php
         include 'footer.php';

@@ -4,11 +4,11 @@
     <main>
         <div style="display: flex; flex-direction: column; align-items: center;" class="window_start">
             <div style='display:flex; flex-direction: row; justify-content: center' class='mb-2'>
-                <span style='font-size: 70px;'> 
+                <span class="temat"> 
                     Przedmioty
                 </span>
             </div>
-            <span><b>
+            <span class="text_content"><b>
                 W grze spotkać możemy wiele przedmiotów, które w wyjątkowy sposób zmieniają rozgrywkę, często zmieniając statystyki, 
                 nadając wyjątkowe efekty, wystrzeliwanym przez naszą postać, pociskom i wiele, wiele więcej.
             </b></span>

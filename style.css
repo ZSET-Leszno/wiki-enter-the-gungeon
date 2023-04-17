@@ -32,9 +32,8 @@ header{
     float: inline-end;
     text-decoration: none;
     color: #eed3fe;
-    font-size: 110%;
-    padding-left: 1%;
-    padding-right: 1%;
+    font-size: 100%;
+    padding: 0.5%;
     font-weight: bold;
 }
 .link_:hover{
@@ -49,12 +48,17 @@ header{
     align-items: center;
     background-color: #3d2564;
     color: #eed3fe;
-    font-size: 2vh;
+    font-size: 15pt;
     padding: 0.5%;
     padding-left: 2%;
     padding-right: 2%;
     border-bottom: 3px solid #0f0028;
 }
+@media screen and (max-width: 750px) {
+    #title{
+        font-size:2.5vw;
+    }
+  }
 #logo_img{
     width: 30vw;
     height: 100%;
@@ -74,9 +78,21 @@ nav{
     padding-left: 2%;
     padding-right: 2%;
     background-color: #3d2564;
-    height: 60%;
-    font-size: 2vh;
+    height: 100%;
+    width: 100%;
+    font-size: 100%;
+    overflow: hidden;
+    text-overflow: clip;
+    white-space: nowrap;
+    align-items: center;
 }
+
+@media screen and (max-width: 750px) {
+    nav {
+        font-size:2.5vw;
+    }
+  }
+
 main{
     font-size: 25pt;
     height: auto;
@@ -85,7 +101,7 @@ main{
 #karuzela{
     background-color: rgb(238, 211, 254, 0.6);
     float: left;
-    width: 70%;
+    width: 85%;
     height: 90%;
     margin: 0.5%;
     padding: 0.5%;
@@ -102,100 +118,13 @@ main{
 
 }
 
-
-#kom_sekcja{
-    background-color: rgb(238, 211, 254, 0.6);
-    float: right;
-    width: 20%;
-    height: 30%;
-    margin: 0.5%;
-    margin-right: 8%;
-    padding: 0.5%;
-
-    border: 2%;
-    border-color: #4a154d;
-    border-style: double;
-
-    border-radius: 10px;
-}
-#content{
-    display: flex;
-    flex-direction: column;
-    background-color: rgb(238, 211, 254, 0.6);
-    float: left;
-    width: 60%;
-    height: 60%;
-    margin: 0.5%;
-    margin-left: 8%;
-    padding: 0.5%;
-
-    border: 2%;
-    border-color: #4a154d;
-    border-style: double;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    border-radius: 10px;
-}
-.content_group{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-}
-.content_single{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    background-color: #0f0028;
-    color: #eed3fe;
-    margin: 2%;
-
-    border-radius: 10px;
-    height: 100%;
-    width: 25%;
-    text-decoration: none;
-}
-.content_content{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #3d2564;
-    height: 100%;
-    width: 100%;
-    border-radius: 10px;
-    padding: 2%;
-
-}
-.content_img{
-    height: fit-content;
-    overflow: hidden;
-    height: 100%;
-    border-radius: 10px;
-}
 .naglowek{
     padding: 2%;
     color: white;
     text-decoration: none;
     font-weight: bold;
 }
-#dodatkowe{
-    background-color: rgb(238, 211, 254, 0.6);
-    float: right;
-    width: 20%;
-    height: 30%;
-    margin: 0.5%;
-    margin-right: 8%;
-    padding: 0.5%;
 
-    border: 2%;
-    border-color: #4a154d;
-    border-style: double;
-
-    border-radius: 10px;
-}
 footer{
     clear: both;
     padding: 1%;
@@ -291,7 +220,7 @@ td{
     background-color: #0f0028;
     border: 5px solid #2e1158!important;
     color: #dcbdee;
-    height:100%;
+    height: 100%;
     vertical-align: middle;
     display: flex;
     align-items:center;
@@ -352,6 +281,11 @@ td{
     text-justify: inter-word;
     
 }
+@media screen and (max-width: 750px) {
+    .window_start{
+        width: 90%;
+    }
+  }
 
 .button{
     color: white;
@@ -375,13 +309,90 @@ td{
     flex-direction: column; 
     align-items: center;
     padding: 2%;
-    width: 40%;
+    width: 50%;
     height: 100%;
 }
+.spis_3{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: #0f0028;
+    border: 5px solid #eed3fe!important;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+    width: 100%;
+    height: 100%;
+
+}
+#dodatkowy{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+@media screen and (max-width: 1100px) {
+    #dodatkowy{
+        flex-direction: column;
+    }
+  }
 
 #nazwa{
     border: 5px solid #2e1158!important;
+    width: 100%;
 }
+
+.temat{
+    font-size: 50pt;
+}
+@media screen and (max-width: 750px) {
+    .temat{
+        font-size:10vw;
+    }
+  }
+
+.text_content{
+    font-size: 20pt;
+}
+@media screen and (max-width: 750px) {
+    .text_content{
+        font-size:4.5vw;
+    }
+  }
+.vl {
+    border-left: 2px solid #eed3fe!important;
+    height: 4vh;
+    margin-left: 4.5px;
+    margin-right: 4.5px;
+  }
+
+  .temat_2{
+    font-size: 40pt;
+}
+@media screen and (max-width: 750px) {
+    .temat_2{
+        font-size:7vw;
+    }
+  }
+
+.spis_2{
+    float: inline-end;
+    text-decoration: none;
+    color: #eed3fe;
+    font-size: 25pt;
+    padding: 0.5%;
+    font-weight: bold;
+}
+.spis_2:hover{
+    background-color: rgb(127, 62, 202);
+    transition: 1s;
+}
+
+@media screen and (max-width: 750px) {
+    .spis_2{
+        font-size:3.5vw;
+    }
+  }
 
 /*
 KOLORY:

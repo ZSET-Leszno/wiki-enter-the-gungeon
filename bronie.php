@@ -4,11 +4,11 @@
     <main>
         <div style="display: flex; flex-direction: column; align-items: center;" class="window_start">
         <div style='display:flex; flex-direction: row; justify-content: center' class='mb-2'>
-                <span style='font-size: 70px;'> 
+                <span class="temat"> 
                     Bronie
                 </span>
             </div>
-            <span><b>
+            <span class="text_content"><b>
                 Jak sama nazwa wskazuje, najważsze w Lochu Giwer są właśnie giwery. W tej oto zakładce znajdziecie informacje na temat broni dostępnych w grze, 
                 w tym ich działanie oraz kilka ciekawostek.
             </b></span>

@@ -3,9 +3,9 @@
 ?>
     <main style="display: flex; justify-content: center;">
         <div id="karuzela">
-            <h1><b>Enter the Gungeon Wiki</b></h1>
-            <p><b>Witaj na naszej wiki!</b></p>
-            <span><b>Znajdziesz tu wiele informacji na temat gry Enter the Gungeon</b></span>
+            <h2><b>Enter the Gungeon Wiki</b></h2>
+            <p class="text_content"><b>Witaj na naszej wiki!</b></p>
+            <span class="text_content"><b>Znajdziesz tu wiele informacji na temat gry Enter the Gungeon</b></span>
             <div>
                 <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
