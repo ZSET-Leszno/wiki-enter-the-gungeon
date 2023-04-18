@@ -2,15 +2,37 @@
 function tabela_bron(){
     include "config.php";
     $conn=mysqli_connect($lokacja_baza, $user_baza, $pass_baza, $name_baza);
-    $zapytanie='SELECT * FROM bronie JOIN qualities ON bronie.quality=qualities.id;';
-    $wynik=mysqli_query($conn,$zapytanie);
-    $ile_rekord=mysqli_num_rows($wynik);
     $licz=1;
 
-    //if(isset($_POST["nazwa"])){
-        //$nazwa=$_POST["nazwa"];
-        //echo "<p><a href='#".$nazwa."'>Pokaż wyszukaną broń</a></p>";
-    //}
+    echo '<div style="display: flex; flex-direction: column; align-items: center;" class="window_start">
+            <div style="display:flex; flex-direction: row; justify-content: center" class="mb-2">
+                <span class="temat"> 
+                    Bronie
+                </span>
+            </div>
+                <span class="text_content"><b>
+                    Jak sama nazwa wskazuje, najważsze w Lochu Giwer są właśnie giwery. W tej oto zakładce znajdziecie informacje na temat broni dostępnych w grze, 
+                    w tym ich działanie oraz kilka ciekawostek.
+                </b></span>
+            <div style="display: flex; align-items: center;">
+                <form action="" method="post">
+                    <input name="nazwa" id="nazwa" type="text">
+                    <button type="submit" class="button">Szukaj</button>
+                </form>
+            </div>
+        </div>';
+
+    if(isset($_POST['nazwa'])){
+        $search=$_POST['nazwa'];
+        $zapytanie='SELECT * FROM bronie JOIN qualities ON bronie.quality=qualities.id where name_bron like "%'.$search.'%";';
+        $wynik=mysqli_query($conn,$zapytanie);
+        $ile_rekord=mysqli_num_rows($wynik);
+    }
+    else{
+        $zapytanie='SELECT * FROM bronie JOIN qualities ON bronie.quality=qualities.id;';
+        $wynik=mysqli_query($conn,$zapytanie);
+        $ile_rekord=mysqli_num_rows($wynik);
+    }
 
     echo "<div style='padding: 0px; margin:0;' class='row mb-3 mt-2'>";
     while($licz<=$ile_rekord){

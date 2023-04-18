@@ -133,8 +133,5 @@
     <?php
         include 'footer.php';
     ?>
-    <!--<footer>
-        <a>Strona by Brajan Hylla & Joanna Muzyka</a>
-    </footer>-->
 </body>
 </html>

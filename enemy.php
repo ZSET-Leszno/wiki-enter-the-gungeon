@@ -58,7 +58,6 @@
                                 Twierdza Władcy Ołowiu
                             </span>
                             </div>";
-                    //echo "<span>Twierdza Władcy Ołowiu</span>";
                 }
                 if($numer_boss==3){
                     echo "<div class='mb-2'>

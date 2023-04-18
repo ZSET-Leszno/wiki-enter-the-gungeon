@@ -343,7 +343,7 @@ td{
 
 #nazwa{
     border: 5px solid #2e1158!important;
-    width: 100%;
+    width: 60%;
 }
 
 .temat{
@@ -400,8 +400,12 @@ td{
 
 /*
 KOLORY:
+rgb(127, 62, 202)
 #810484
 #4a154d
 #eed3fe
 #cba8e0
+#0f0028
+#2e1158
+#3d2564
 */
