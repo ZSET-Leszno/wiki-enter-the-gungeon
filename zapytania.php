@@ -245,10 +245,37 @@ echo '<br>';
     function tabela_itemy(){
         include "config.php";
         $conn=mysqli_connect($lokacja_baza, $user_baza, $pass_baza, $name_baza);
-        $zapytanie='SELECT * FROM itemy JOIN qualities ON itemy.quality=qualities.id;';
-        $wynik=mysqli_query($conn,$zapytanie);
-        $ile_rekord=mysqli_num_rows($wynik);
         $licz=1;
+
+        echo '<div style="display: flex; flex-direction: column; align-items: center;" class="window_start">
+            <div style="display:flex; flex-direction: row; justify-content: center" class="mb-2">
+                <span class="temat"> 
+                    Przedmioty
+                </span>
+            </div>
+            <span class="text_content"><b>
+                W grze spotkać możemy wiele przedmiotów, które w wyjątkowy sposób zmieniają rozgrywkę, często zmieniając statystyki, 
+                nadając wyjątkowe efekty, wystrzeliwanym przez naszą postać, pociskom i wiele, wiele więcej.
+            </b></span>
+            <div style="display: flex; align-items: center;">
+                <form action="" method="post">
+                    <input name="nazwa" id="nazwa" type="text">
+                    <button type="submit" class="button">Szukaj</button>
+                </form>
+            </div>
+        </div>';
+
+        if(isset($_POST['nazwa'])){
+            $search=$_POST['nazwa'];
+            $zapytanie='SELECT * FROM itemy JOIN qualities ON itemy.quality=qualities.id where name_item like "%'.$search.'%";';
+            $wynik=mysqli_query($conn,$zapytanie);
+            $ile_rekord=mysqli_num_rows($wynik);
+        }
+        else{
+            $zapytanie='SELECT * FROM itemy JOIN qualities ON itemy.quality=qualities.id;';
+            $wynik=mysqli_query($conn,$zapytanie);
+            $ile_rekord=mysqli_num_rows($wynik);
+        }
 
         echo "<div style='padding: 0px; margin:0;' class='row mb-3 mt-2'>";
         while ($licz<=$ile_rekord){
